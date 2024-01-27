@@ -9,11 +9,13 @@
 
 [node name="Player" parent="." instance=ExtResource("1_vby6k")]
 position = Vector2(-455, -74)
+scale = Vector2(0.75, 0.75)
 
 [node name="Level" parent="." instance=ExtResource("2_llr8p")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-455, -74)
+zoom = Vector2(2, 2)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("2_ud56r")
@@ -23,7 +25,7 @@ position = Vector2(-455, -74)
 script = ExtResource("2_3bff8")
 priority_override = false
 priority = 0
-zoom = Vector2(1, 1)
+zoom = Vector2(2, 2)
 follow_mode = 2
 follow_target = NodePath("../Player")
 follow_parameters/target_offset = Vector2(0, 0)
