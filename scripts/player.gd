@@ -3,13 +3,13 @@ extends CharacterBody2D
 @onready var playerSprite = $Sprite2D
 
 
-const SPEED = 190.0
-const JUMP_VELOCITY = -510.0
+const SPEED = 200.0
+const JUMP_VELOCITY = -710.0
 
 var previousPosition = Vector2.ZERO
 var needsToiletNow = false
 
-signal collided(collision)
+signal died()
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -52,8 +52,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		if collision:
-			emit_signal('collided', collision)
+
+
+func die():
+	died.emit()

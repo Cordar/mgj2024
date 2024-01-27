@@ -84,5 +84,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Control" parent="CanvasLayer/HUD" instance=ExtResource("7_j2v8q")]
 layout_mode = 1
 
+[connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="full" from="CanvasLayer/HUD/Shitmeter" to="." method="_on_shitmeter_shit_meter_is_full"]
 [connection signal="half_full" from="CanvasLayer/HUD/Shitmeter" to="." method="_on_shitmeter_half_full"]

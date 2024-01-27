@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://djsat07na365n"]
+
+[ext_resource type="Script" path="res://scripts/obstacles/block_appear.gd" id="1_ki7hf"]
+[ext_resource type="Texture2D" uid="uid://b1oex6a4un0q7" path="res://assets/tilemap_terrain.png" id="1_xu5to"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1gwg"]
+size = Vector2(99, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeotg"]
+size = Vector2(54, 58)
+
+[node name="BlockAppear" type="Node2D"]
+script = ExtResource("1_ki7hf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_w1gwg")
+
+[node name="Block" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Block"]
+texture = ExtResource("1_xu5to")
+region_enabled = true
+region_rect = Rect2(387.045, 582.021, 57.1305, 57.481)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+shape = SubResource("RectangleShape2D_eeotg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

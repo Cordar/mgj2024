@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2lsns0io8onr"]
+
+[ext_resource type="Script" path="res://scripts/obstacles/block_appear.gd" id="1_y10lu"]
+[ext_resource type="Texture2D" uid="uid://b1oex6a4un0q7" path="res://assets/tilemap_terrain.png" id="2_270bs"]
+[ext_resource type="PackedScene" uid="uid://chpklgkc8owdl" path="res://scenes/obstacles/spikes.tscn" id="3_ka1fq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1gwg"]
+size = Vector2(139, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeotg"]
+size = Vector2(54, 58)
+
+[node name="BlockAppear" type="Node2D"]
+script = ExtResource("1_y10lu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_w1gwg")
+
+[node name="Block" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Block"]
+texture = ExtResource("2_270bs")
+region_enabled = true
+region_rect = Rect2(387.045, 582.021, 57.1305, 57.481)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+shape = SubResource("RectangleShape2D_eeotg")
+
+[node name="Spikes" parent="Block" instance=ExtResource("3_ka1fq")]
+position = Vector2(0, -56)
+
+[node name="Spikes2" parent="Block" instance=ExtResource("3_ka1fq")]
+position = Vector2(-55, 1)
+rotation = -1.5708
+
+[node name="Spikes3" parent="Block" instance=ExtResource("3_ka1fq")]
+position = Vector2(55, 0)
+rotation = 1.5708
+
+[node name="Spikes4" parent="Block" instance=ExtResource("3_ka1fq")]
+position = Vector2(0, 57)
+rotation = -3.14159
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
