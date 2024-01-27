@@ -16,7 +16,7 @@ signal died()
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	pass
+	dead = false
 	
 func updateAnimation():
 	if dead:
@@ -58,7 +58,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func die(emit = true):
+func die():
 	dead = true
-	if emit:
-		died.emit()
+	died.emit()

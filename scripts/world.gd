@@ -22,8 +22,7 @@ func _on_shitmeter_shit_meter_is_full():
 	die()
 
 func die():
-	$Player.die(false)
-	await get_tree().create_timer(0.1).timeout
+	print("die")
 	get_tree().paused = true
 	await get_tree().create_timer(0.5).timeout
 	get_tree().paused = false

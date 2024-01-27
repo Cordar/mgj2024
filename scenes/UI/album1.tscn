@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://hpufuj3y8smp"]
+
+[ext_resource type="Script" path="res://scripts/album.gd" id="1_ls0cq"]
+[ext_resource type="PackedScene" uid="uid://btd48ejfqlphu" path="res://scenes/UI/album_meme.tscn" id="2_prs7e"]
+[ext_resource type="Texture2D" uid="uid://cjbqj5svivmeu" path="res://assets/images/memes/BlackFuneral.webp" id="3_7h0xd"]
+[ext_resource type="Texture2D" uid="uid://d2jdplmmevggr" path="res://assets/images/album.png" id="6_ppu8n"]
+[ext_resource type="Texture2D" uid="uid://brgg06oiwk6ui" path="res://assets/images/button_album.png" id="7_eyg2f"]
+[ext_resource type="Texture2D" uid="uid://ccjl7urb55ssh" path="res://assets/images/button_album_hover.png" id="8_de2b1"]
+
+[node name="Album" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ls0cq")
+page = 1
+
+[node name="memes" type="Node" parent="."]
+
+[node name="meme1" parent="memes" instance=ExtResource("2_prs7e")]
+offset_left = 287.0
+offset_top = 309.0
+offset_right = 661.0
+offset_bottom = 568.0
+texture = ExtResource("3_7h0xd")
+meme = "BlackFuneral"
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.990913, 0.990913)
+texture = ExtResource("6_ppu8n")
+
+[node name="GoBackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 23.0
+offset_right = 114.0
+offset_bottom = 63.0
+scale = Vector2(2.49422, 2.49422)
+text = "Return to Menu"
+
+[node name="NextPageButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1691.0
+offset_top = 441.0
+offset_right = 1803.0
+offset_bottom = 636.0
+texture_normal = ExtResource("7_eyg2f")
+texture_pressed = ExtResource("8_de2b1")
+texture_hover = ExtResource("8_de2b1")
+
+[node name="PreviousPageButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 448.0
+offset_right = 129.0
+offset_bottom = 643.0
+texture_normal = ExtResource("7_eyg2f")
+texture_pressed = ExtResource("8_de2b1")
+texture_hover = ExtResource("8_de2b1")
+flip_h = true
+
+[connection signal="pressed" from="GoBackButton" to="." method="_on_go_back_button_pressed"]
+[connection signal="pressed" from="NextPageButton" to="." method="_on_next_page_button_pressed"]
+[connection signal="pressed" from="PreviousPageButton" to="." method="_on_previous_page_button_pressed"]
