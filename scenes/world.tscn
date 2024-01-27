@@ -1,32 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://7o4b7wxe8i5t"]
+[gd_scene load_steps=9 format=3 uid="uid://7o4b7wxe8i5t"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_76qqt"]
 [ext_resource type="PackedScene" uid="uid://bu6jwnijecdhm" path="res://scenes/player.tscn" id="1_vby6k"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="2_3bff8"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ud56r"]
-[ext_resource type="PackedScene" uid="uid://k0thsj830riu" path="res://scenes/level_1.tscn" id="4_6t2fh"]
+[ext_resource type="PackedScene" uid="uid://w61eik3axh2m" path="res://scenes/level_0.tscn" id="3_7i2ug"]
 [ext_resource type="PackedScene" uid="uid://ceb1x1e88733" path="res://scenes/UI/shitmeter.tscn" id="6_rwgpu"]
 [ext_resource type="PackedScene" uid="uid://bgw3h3p7wjodm" path="res://scenes/UI/pause_menu.tscn" id="7_j2v8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cf68"]
+size = Vector2(50, 44)
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("deathCounterLabel")]
 script = ExtResource("1_76qqt")
 deathCounterLabel = NodePath("CanvasLayer/HUD/DeathCounter")
 
 [node name="Player" parent="." instance=ExtResource("1_vby6k")]
-position = Vector2(1701, -441)
+position = Vector2(-476, -778)
 scale = Vector2(0.75, 0.75)
 
-[node name="Level2" parent="." instance=ExtResource("4_6t2fh")]
+[node name="Level" parent="." instance=ExtResource("3_7i2ug")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1700.8, -440.923)
+position = Vector2(-476, -778)
 zoom = Vector2(2, 2)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("2_ud56r")
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
-position = Vector2(1700.81, -440.926)
+position = Vector2(-476, -778)
 script = ExtResource("2_3bff8")
 priority_override = false
 priority = 0
@@ -84,6 +87,14 @@ metadata/_edit_use_anchors_ = true
 [node name="Control" parent="CanvasLayer/HUD" instance=ExtResource("7_j2v8q")]
 layout_mode = 1
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2641, -340)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(15, -12)
+shape = SubResource("RectangleShape2D_6cf68")
+
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="full" from="CanvasLayer/HUD/Shitmeter" to="." method="_on_shitmeter_shit_meter_is_full"]
 [connection signal="half_full" from="CanvasLayer/HUD/Shitmeter" to="." method="_on_shitmeter_half_full"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
