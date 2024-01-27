@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_76qqt"]
 [ext_resource type="PackedScene" uid="uid://bu6jwnijecdhm" path="res://scenes/player.tscn" id="1_vby6k"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="2_3bff8"]
-[ext_resource type="PackedScene" uid="uid://w61eik3axh2m" path="res://scenes/level_0.tscn" id="2_llr8p"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ud56r"]
+[ext_resource type="PackedScene" uid="uid://k0thsj830riu" path="res://scenes/level_1.tscn" id="4_6t2fh"]
 [ext_resource type="PackedScene" uid="uid://ceb1x1e88733" path="res://scenes/UI/shitmeter.tscn" id="6_rwgpu"]
 [ext_resource type="PackedScene" uid="uid://bgw3h3p7wjodm" path="res://scenes/UI/pause_menu.tscn" id="7_j2v8q"]
 
@@ -16,20 +16,20 @@ script = ExtResource("1_76qqt")
 deathCounterLabel = NodePath("CanvasLayer/HUD/DeathCounter")
 
 [node name="Player" parent="." instance=ExtResource("1_vby6k")]
-position = Vector2(-482, -181)
+position = Vector2(1701, -441)
 scale = Vector2(0.75, 0.75)
 
-[node name="Level" parent="." instance=ExtResource("2_llr8p")]
+[node name="Level2" parent="." instance=ExtResource("4_6t2fh")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-482, -181)
+position = Vector2(1700.8, -440.923)
 zoom = Vector2(2, 2)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("2_ud56r")
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
-position = Vector2(-482, -181)
+position = Vector2(1700.81, -440.926)
 script = ExtResource("2_3bff8")
 priority_override = false
 priority = 0
