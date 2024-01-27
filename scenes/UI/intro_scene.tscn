@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjpbwj34ksmvj"]
+[gd_scene load_steps=8 format=3 uid="uid://cjpbwj34ksmvj"]
 
-[ext_resource type="Texture2D" uid="uid://dk5jaw0ftel6n" path="res://assets/images/meme_monkey.png" id="1_4v5jj"]
+[ext_resource type="Texture2D" uid="uid://hkqmpmul40bc" path="res://assets/images/intro1.png" id="1_fp1wv"]
+[ext_resource type="Texture2D" uid="uid://lkpn53uo2y8k" path="res://assets/images/intro2.png" id="2_j6h8i"]
+[ext_resource type="Texture2D" uid="uid://mrv0yhv2rm88" path="res://assets/images/intro3.png" id="3_st8sg"]
+[ext_resource type="Texture2D" uid="uid://texa2iraufw7" path="res://assets/images/intro4.png" id="4_ej1x5"]
+
+[sub_resource type="Animation" id="Animation_rww30"]
+resource_name = "intro_scene"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_fp1wv"), ExtResource("2_j6h8i"), ExtResource("3_st8sg"), ExtResource("4_ej1x5")]
+}
+
+[sub_resource type="Animation" id="Animation_xk0hl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_fp1wv")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2fab"]
+_data = {
+"RESET": SubResource("Animation_xk0hl"),
+"intro_scene": SubResource("Animation_rww30")
+}
 
 [node name="IntroScene" type="Control"]
 layout_mode = 3
@@ -14,8 +54,11 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 954.0
 offset_bottom = 532.0
-texture = ExtResource("1_4v5jj")
+texture = ExtResource("1_fp1wv")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(242, 217)
-zoom = Vector2(4, 2.5)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../TextureRect")
+libraries = {
+"": SubResource("AnimationLibrary_t2fab")
+}
+autoplay = "intro_scene"
