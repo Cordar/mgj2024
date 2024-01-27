@@ -50,7 +50,7 @@ tracks/1/keys = {
 "args": ["Querido diario, Hoy me he puesto monísima para ir a la oficina y he aprovechado que me apetecía un café para darme un paseo y lucirme un poco"],
 "method": &"delayText"
 }, {
-"args": ["Estaba un poco dormida por lo que decidí probar el nuevo café extra fuerte. Grave error."],
+"args": ["Estaba bastante dormida por lo que decidí probar el nuevo café extra fuerte. Grave error."],
 "method": &"delayText"
 }, {
 "args": ["Algo empezó  a rugir en mi interior, algo que necesitaba salir urgentemente. Y entonces pasó..."],
