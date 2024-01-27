@@ -33,5 +33,17 @@ text = "ALBUM
 "
 icon = ExtResource("1_kg2m8")
 
+[node name="ResetSaveData" type="Button" parent="."]
+layout_mode = 2
+offset_left = 869.0
+offset_top = 625.0
+offset_right = 1066.0
+offset_bottom = 761.0
+scale = Vector2(1.00107, 1.003)
+text = "Reset Game
+"
+icon = ExtResource("1_kg2m8")
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="AlbumButton" to="." method="_on_album_button_pressed"]
+[connection signal="pressed" from="ResetSaveData" to="." method="_on_reset_save_data_pressed"]
