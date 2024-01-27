@@ -15,18 +15,19 @@ script = ExtResource("1_c2ny5")
 [node name="memes" type="Node" parent="."]
 
 [node name="meme1" parent="memes" instance=ExtResource("2_1rge6")]
+meme = "BlackFuneral"
 
 [node name="meme2" parent="memes" instance=ExtResource("2_1rge6")]
 offset_left = 321.0
 offset_right = 449.0
-meme = 1
+meme = "Cow"
 
 [node name="meme3" parent="memes" instance=ExtResource("2_1rge6")]
 offset_left = 676.0
 offset_top = -2.0
 offset_right = 804.0
 offset_bottom = 126.0
-meme = 2
+meme = "Monkey"
 
 [node name="GoBackButton" type="Button" parent="."]
 layout_mode = 0

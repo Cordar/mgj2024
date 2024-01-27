@@ -22,13 +22,21 @@ func _on_shitmeter_shit_meter_is_full():
 	die()
 
 func die():
+	$Player.die(false)
+	await get_tree().create_timer(0.1).timeout
+	get_tree().paused = true
+	await get_tree().create_timer(0.5).timeout
+	get_tree().paused = false
 	var lose_screen = load("res://scenes/UI/lose_screen.tscn")
 	var lose_screen_instance = lose_screen.instantiate()
 	lose_screen_instance.set_name("lose_screen")
 	$CanvasLayer.add_child(lose_screen_instance)
-	await get_tree().create_timer(3.0).timeout
-	get_tree().reload_current_scene()
+	await get_tree().create_timer(2.5).timeout
+	
 	Globals.deaths += 1
+	if Globals.deaths >= 10:
+		Globals.unlock_meme(Globals.memeBlackFuneral)
+	get_tree().reload_current_scene()
 	setDeathsLabel()
 
 func setDeathsLabel():
@@ -58,5 +66,6 @@ func go_to_next_level():
 
 
 func _on_area_2d_body_entered(body:Node2D):
-	go_to_next_level()
-	$Area2D.queue_free()
+	if body.name == "Player":
+		go_to_next_level()
+		$Area2D.queue_free()

@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -710.0
 var previousPosition = Vector2.ZERO
 var needsToiletNow = false
 
+var dead = false
 signal died()
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -18,6 +19,9 @@ func _ready():
 	pass
 	
 func updateAnimation():
+	if dead:
+		animations.play("damage")
+		return
 	if position.y < previousPosition.y: 
 		animations.play("jump")
 	elif position.y > previousPosition.y: 
@@ -54,5 +58,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func die():
-	died.emit()
+func die(emit = true):
+	dead = true
+	if emit:
+		died.emit()
