@@ -1,27 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://7o4b7wxe8i5t"]
+[gd_scene load_steps=7 format=3 uid="uid://7o4b7wxe8i5t"]
 
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_76qqt"]
 [ext_resource type="PackedScene" uid="uid://bu6jwnijecdhm" path="res://scenes/player.tscn" id="1_vby6k"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="2_3bff8"]
 [ext_resource type="PackedScene" uid="uid://w61eik3axh2m" path="res://scenes/level_0.tscn" id="2_llr8p"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ud56r"]
+[ext_resource type="PackedScene" uid="uid://ceb1x1e88733" path="res://scenes/UI/shitmeter.tscn" id="6_rwgpu"]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" node_paths=PackedStringArray("deathCounterLabel")]
+script = ExtResource("1_76qqt")
+deathCounterLabel = NodePath("CanvasLayer/HUD/DeathCounter")
 
 [node name="Player" parent="." instance=ExtResource("1_vby6k")]
-position = Vector2(-455, -74)
+position = Vector2(-230, -74)
 scale = Vector2(0.75, 0.75)
 
 [node name="Level" parent="." instance=ExtResource("2_llr8p")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-455, -74)
+position = Vector2(-230, -74)
 zoom = Vector2(2, 2)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("2_ud56r")
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
-position = Vector2(-455, -74)
+position = Vector2(-230, -74)
 script = ExtResource("2_3bff8")
 priority_override = false
 priority = 0
@@ -43,3 +47,36 @@ limit/smoothed = false
 tween_parameters = null
 tween_on_load = true
 inactive_update_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Shitmeter" parent="CanvasLayer/HUD" instance=ExtResource("6_rwgpu")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="DeathCounter" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
+metadata/_edit_use_anchors_ = true
+
+[connection signal="ShitMeterIsFull" from="CanvasLayer/HUD/Shitmeter" to="." method="_on_shitmeter_shit_meter_is_full"]

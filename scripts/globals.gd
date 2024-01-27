@@ -12,6 +12,8 @@ var is_meme_found = {
 	Meme.InfernalGirl: false,
 };
 
+var deaths: int = 0;
+
 func _ready():
 	load_game();
 
