@@ -28,6 +28,10 @@ window/size/viewport_height=1080
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://assets/fonts/SueEllenFrancisco-Regular.ttf"
+
 [input]
 
 move_left={

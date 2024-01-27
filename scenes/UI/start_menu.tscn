@@ -82,25 +82,15 @@ texture_hover = ExtResource("5_54p6w")
 
 [node name="Label" type="Label" parent="AlbumButton2"]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 17.0
-offset_right = 823.0
-offset_bottom = 116.0
+offset_left = 115.0
+offset_top = 21.0
+offset_right = 852.0
+offset_bottom = 120.0
 theme_override_colors/font_color = Color(0.262745, 0.207843, 0.152941, 1)
 theme_override_fonts/font = ExtResource("6_tist1")
 theme_override_font_sizes/font_size = 72
-text = "PALS
+text = "MEMERANDUM
 "
-
-[node name="Label2" type="Label" parent="AlbumButton2"]
-layout_mode = 0
-offset_left = 411.0
-offset_top = 37.0
-offset_right = 1148.0
-offset_bottom = 136.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "(not Pokemons)"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

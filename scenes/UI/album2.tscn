@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://0ka2kygfwxu"]
+
+[ext_resource type="Script" path="res://scripts/album.gd" id="1_rwga7"]
+[ext_resource type="PackedScene" uid="uid://btd48ejfqlphu" path="res://scenes/UI/album_meme.tscn" id="2_qvjv4"]
+[ext_resource type="Texture2D" uid="uid://dk5jaw0ftel6n" path="res://assets/images/memes/Monkey.png" id="5_hwqyv"]
+[ext_resource type="Texture2D" uid="uid://d2jdplmmevggr" path="res://assets/images/album.png" id="6_6igdd"]
+[ext_resource type="Texture2D" uid="uid://brgg06oiwk6ui" path="res://assets/images/button_album.png" id="7_pagaj"]
+[ext_resource type="Texture2D" uid="uid://ccjl7urb55ssh" path="res://assets/images/button_album_hover.png" id="8_ccsic"]
+
+[node name="Album" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rwga7")
+page = 2
+
+[node name="memes" type="Node" parent="."]
+
+[node name="meme3" parent="memes" instance=ExtResource("2_qvjv4")]
+offset_left = 1109.0
+offset_top = 361.0
+offset_right = 1751.0
+offset_bottom = 780.0
+scale = Vector2(0.507905, 0.507905)
+texture = ExtResource("5_hwqyv")
+meme = "Monkey"
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.990913, 0.990913)
+texture = ExtResource("6_6igdd")
+
+[node name="GoBackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 23.0
+offset_right = 114.0
+offset_bottom = 63.0
+scale = Vector2(2.49422, 2.49422)
+text = "Return to Menu"
+
+[node name="NextPageButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1691.0
+offset_top = 441.0
+offset_right = 1803.0
+offset_bottom = 636.0
+texture_normal = ExtResource("7_pagaj")
+texture_pressed = ExtResource("8_ccsic")
+texture_hover = ExtResource("8_ccsic")
+
+[node name="PreviousPageButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 448.0
+offset_right = 129.0
+offset_bottom = 643.0
+texture_normal = ExtResource("7_pagaj")
+texture_pressed = ExtResource("8_ccsic")
+texture_hover = ExtResource("8_ccsic")
+flip_h = true
+
+[connection signal="pressed" from="GoBackButton" to="." method="_on_go_back_button_pressed"]
+[connection signal="pressed" from="NextPageButton" to="." method="_on_next_page_button_pressed"]
+[connection signal="pressed" from="PreviousPageButton" to="." method="_on_previous_page_button_pressed"]

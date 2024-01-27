@@ -3,8 +3,7 @@ extends TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Globals.deaths >= 5:
-		Globals.unlock_meme("BlackFuneral")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

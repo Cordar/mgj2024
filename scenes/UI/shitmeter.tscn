@@ -22,10 +22,11 @@ image4 = ExtResource("5_i4wtw")
 
 [node name="Image" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 41.0
-offset_top = -283.0
-offset_right = 273.0
-offset_bottom = -51.0
+offset_left = 34.0
+offset_top = -291.0
+offset_right = 266.0
+offset_bottom = -59.0
+scale = Vector2(1.08078, 1.08078)
 texture = ExtResource("1_xtrmp")
 
 [node name="Border" type="TextureRect" parent="."]

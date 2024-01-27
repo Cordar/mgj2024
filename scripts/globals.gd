@@ -5,21 +5,38 @@ var memeCow = "Cow";
 var memeInfernalGirl = "InfernalGirl";
 var memeBlackFuneral = "BlackFuneral";
 
-var is_meme_found;
+var memes_unlocked;
 var levelCheckpoint: int;
 var lastCheckpoint: Vector2;
 
 var deaths: int = 0;
 
 func _ready():
-	reset_game();
-	save_game();
+	initVariables();
 	load_game();
 
+func find_meme_texture(meme: String) -> Texture:
+	var pngTexture = load("res://assets/images/memes/" + str(meme) + ".png")
+	if pngTexture == null:
+		var webpTexture = load("res://assets/images/memes/" + str(meme) + ".webp")
+		if webpTexture == null:
+			print("Meme texture not found")
+			return null;
+		else:
+			return webpTexture
+	else:
+		return pngTexture
+
 func unlock_meme(meme: String) -> void:
-	if !is_meme_found.find_key(meme) or is_meme_found[meme]:
+	print(meme);
+	print(memes_unlocked);
+	if not memes_unlocked.has(meme):
+		print("Meme not found")
 		return;
-	is_meme_found[meme] = true;
+	if memes_unlocked[meme]:
+		print("Meme already unlocked")
+		return;
+	memes_unlocked[meme] = true;
 	save_game();
 	var canvas_layer = CanvasLayer.new()
 	canvas_layer.set_name("canvas_layer")
@@ -27,7 +44,11 @@ func unlock_meme(meme: String) -> void:
 	var meme_popup = load("res://scenes/UI/meme_popup.tscn")
 	var meme_popup_instance = meme_popup.instantiate()
 	meme_popup_instance.set_name("meme_popup")
-	meme_popup_instance.set("texture", load("res://assets/images/memes/" + str(meme) + ".png"))
+	var meme_texture = find_meme_texture(meme)
+	if meme_texture == null:
+		print("Meme texture not found")
+		return;
+	meme_popup_instance.set("texture", meme_texture)
 	canvas_layer.add_child(meme_popup_instance)
 
 # Note: This can be called from anywhere inside the tree. This function is
@@ -35,12 +56,12 @@ func unlock_meme(meme: String) -> void:
 func save_game():
 	if not FileAccess.file_exists("user://savegame.save"):
 		reset_game()
-		
+
 	var save_game_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	# JSON provides a static method to serialized JSON string.
 	var json_string = JSON.stringify(
 		{
-			"is_meme_found": is_meme_found,
+			"memes_unlocked": memes_unlocked,
 			"last_checkpoint": {
 			"x": lastCheckpoint.x,
 			"y": lastCheckpoint.y,
@@ -77,11 +98,11 @@ func load_game():
 		var load_data = json.get_data()
 
 		# Load meme data
-		var loaded_is_meme_found = load_data["is_meme_found"]
-		for key in loaded_is_meme_found:
-			var value = loaded_is_meme_found[key]
-			print(key, value)
-			is_meme_found[key] = value
+		var loaded_memes_unlocked = load_data["memes_unlocked"]
+		print(loaded_memes_unlocked)
+		for key in loaded_memes_unlocked:
+			var value = loaded_memes_unlocked[key]
+			memes_unlocked[key] = value
 
 		# Load checkpoint data
 		var loaded_last_checkpoint = load_data["last_checkpoint"]
@@ -90,13 +111,16 @@ func load_game():
 		# Load level checkpoint data
 		levelCheckpoint = load_data["level_checkpoint"]
 
-func reset_game():
-	is_meme_found = {
-		"memeMonkey": false,
-		"memeCow": false,
-		"memeInfernalGirl": false,
-		"memeBlackFuneral": false,
+func initVariables():
+	memes_unlocked = {
+		memeMonkey: false,
+		memeCow: false,
+		memeInfernalGirl: false,
+		memeBlackFuneral: false,
 	};
-	lastCheckpoint = Vector2(0, 0);
+	lastCheckpoint = Vector2(-476, -780);
 	levelCheckpoint = 0;
+
+func reset_game():
+	initVariables();
 	save_game();

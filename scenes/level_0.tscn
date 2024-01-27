@@ -12,3 +12,24 @@ layer_0/tile_data = PackedInt32Array(16, 393216, 9, 17, 393216, 9, 18, 393216, 9
 
 [node name="Checkpoint" parent="." instance=ExtResource("2_cgk5a")]
 position = Vector2(417, -74)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 371.0
+offset_top = -180.0
+offset_right = 463.0
+offset_bottom = -148.0
+text = "PLANTA = BUENA"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -346.0
+offset_top = -135.0
+offset_right = -301.0
+offset_bottom = -103.0
+text = "CUIDAO!"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 7.0
+offset_top = -136.0
+offset_right = 52.0
+offset_bottom = -104.0
+text = "OADIUC!"
