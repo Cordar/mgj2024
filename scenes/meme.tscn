@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://daqcmddg2rh3h"]
 
-[ext_resource type="Texture2D" uid="uid://dk5jaw0ftel6n" path="res://assets/images/meme_monkey.png" id="1_lc7w7"]
+[ext_resource type="Texture2D" uid="uid://dk5jaw0ftel6n" path="res://assets/images/memes/Monkey.png" id="1_lc7w7"]
 
 [sub_resource type="Animation" id="Animation_5cx1e"]
 length = 0.001
