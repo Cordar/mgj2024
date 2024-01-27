@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var animations = $AnimationPlayer
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
@@ -10,8 +10,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	pass
 
+func updateAnimation():
+	if velocity.x ==0: animations.play("idle")
+	if velocity.x>0: animations.play("run")
 
 func _physics_process(delta):
+	updateAnimation()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
