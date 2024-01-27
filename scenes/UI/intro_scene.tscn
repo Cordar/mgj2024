@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjpbwj34ksmvj"]
+[gd_scene load_steps=9 format=3 uid="uid://cmasvqowh4iyq"]
 
 [ext_resource type="Script" path="res://scripts/intro_scene.gd" id="1_8hdq2"]
 [ext_resource type="Texture2D" uid="uid://hkqmpmul40bc" path="res://assets/images/intro1.png" id="1_fp1wv"]
@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_rww30"]
 resource_name = "intro_scene"
-length = 8.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,10 +31,56 @@ tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6),
+"times": PackedFloat32Array(0, 4.1, 6.6, 8.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("1_fp1wv"), ExtResource("2_j6h8i"), ExtResource("3_st8sg"), ExtResource("4_ej1x5")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 4.1, 6.6, 8.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": ["Prueba de texto 1"],
+"method": &"delayText"
+}, {
+"args": ["Prueba de texto 2"],
+"method": &"delayText"
+}, {
+"args": ["Prueba de texto 3"],
+"method": &"delayText"
+}, {
+"args": ["Prueba de texto 4"],
+"method": &"delayText"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 6.5, 8.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"cleanText"
+}, {
+"args": [],
+"method": &"cleanText"
+}, {
+"args": [],
+"method": &"cleanText"
+}, {
+"args": [],
+"method": &"cleanText"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t2fab"]
@@ -64,5 +110,14 @@ libraries = {
 "": SubResource("AnimationLibrary_t2fab")
 }
 autoplay = "intro_scene"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 159.0
+offset_right = 346.0
+offset_bottom = 254.0
+rotation = 0.131163
+scale = Vector2(16.8264, 7.93998)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
