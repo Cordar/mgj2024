@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8ashppxvtoft" path="res://assets/player/Group_5.png" id="2_1dpvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg85q"]
-size = Vector2(146.128, 81.3311)
+size = Vector2(118.863, 85)
 
 [sub_resource type="Animation" id="Animation_ngsov"]
 length = 0.5
@@ -151,6 +151,7 @@ _data = {
 script = ExtResource("1_voref")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0.5)
 scale = Vector2(0.387, 1)
 shape = SubResource("RectangleShape2D_pg85q")
 
