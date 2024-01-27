@@ -30,6 +30,7 @@ region_rect = Rect2(387.045, 582.021, 57.1305, 57.481)
 shape = SubResource("RectangleShape2D_eeotg")
 
 [node name="spikes" type="Node2D" parent="."]
+visible = false
 
 [node name="Spikes" parent="spikes" instance=ExtResource("3_ka1fq")]
 position = Vector2(0, -56)
