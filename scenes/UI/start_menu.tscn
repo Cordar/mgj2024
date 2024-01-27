@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://djpsmaxn24h0"]
+[gd_scene load_steps=3 format=3 uid="uid://djpsmaxn24h0"]
+
+[ext_resource type="Texture2D" uid="uid://crpha72b34n7n" path="res://icon.svg" id="1_kg2m8"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_onm48"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +10,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_onm48")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 862.0
+offset_top = 310.0
+offset_right = 1050.0
+offset_bottom = 446.0
+text = "START
+"
+icon = ExtResource("1_kg2m8")
+
+[node name="AlbumButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 865.0
+offset_top = 469.0
+offset_right = 1053.0
+offset_bottom = 605.0
+scale = Vector2(1.00107, 1.003)
+text = "ALBUM
+"
+icon = ExtResource("1_kg2m8")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="AlbumButton" to="." method="_on_album_button_pressed"]

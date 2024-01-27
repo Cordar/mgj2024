@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://btd48ejfqlphu"]
+
+[ext_resource type="Texture2D" uid="uid://crpha72b34n7n" path="res://icon.svg" id="1_iq24q"]
+[ext_resource type="Script" path="res://scripts/album_meme.gd" id="2_rrnfl"]
+
+[node name="Meme" type="TextureRect"]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_iq24q")
+script = ExtResource("2_rrnfl")
