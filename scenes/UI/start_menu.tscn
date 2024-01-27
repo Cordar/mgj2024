@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://djpsmaxn24h0"]
+[gd_scene load_steps=8 format=3 uid="uid://djpsmaxn24h0"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_onm48"]
 [ext_resource type="Texture2D" uid="uid://msckc61jnjg5" path="res://assets/images/portada.png" id="2_6aq2t"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c8a8lf7vr8t4b" path="res://assets/images/button_intro_border.png" id="3_kyd7r"]
 [ext_resource type="Texture2D" uid="uid://bec8yxivk5sf" path="res://assets/images/button_intro_hover_play.png" id="4_r73cf"]
 [ext_resource type="Texture2D" uid="uid://bnooinp2fgrm8" path="res://assets/images/button_intro_hover_album.png" id="5_54p6w"]
+[ext_resource type="Texture2D" uid="uid://ncy3w3ufjrch" path="res://assets/images/ohshit_logo2.png" id="7_thd42"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -24,10 +25,10 @@ texture = ExtResource("2_6aq2t")
 
 [node name="StartButton" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 679.0
-offset_top = 310.0
-offset_right = 719.0
-offset_bottom = 350.0
+offset_left = 117.0
+offset_top = 456.0
+offset_right = 157.0
+offset_bottom = 496.0
 
 [node name="TextureRect" type="TextureRect" parent="StartButton"]
 z_index = 1
@@ -46,23 +47,26 @@ texture_hover = ExtResource("4_r73cf")
 
 [node name="Label" type="Label" parent="StartButton"]
 layout_mode = 0
-offset_left = 243.0
-offset_top = 4.0
-offset_right = 459.0
-offset_bottom = 103.0
+offset_left = 255.0
+offset_top = 6.0
+offset_right = 480.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 72
-text = "THIS"
+text = "JOGAR"
 
 [node name="AlbumButton2" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 679.0
-offset_top = 515.0
-offset_right = 719.0
-offset_bottom = 555.0
+offset_left = 112.0
+offset_top = 675.0
+offset_right = 152.0
+offset_bottom = 715.0
 
 [node name="TextureRect" type="TextureRect" parent="AlbumButton2"]
+z_index = 1
 layout_mode = 0
-offset_right = 698.0
+offset_left = -1.0
+offset_right = 697.0
 offset_bottom = 124.0
 texture = ExtResource("3_kyd7r")
 
@@ -76,12 +80,32 @@ texture_hover = ExtResource("5_54p6w")
 
 [node name="Label" type="Label" parent="AlbumButton2"]
 layout_mode = 0
-offset_left = 243.0
-offset_top = 4.0
-offset_right = 497.0
-offset_bottom = 103.0
+offset_left = 215.0
+offset_top = 3.0
+offset_right = 952.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 72
-text = "THAT"
+text = "PALS
+"
+
+[node name="Label2" type="Label" parent="AlbumButton2"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 37.0
+offset_right = 1148.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "(not Pokemons)"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 138.0
+offset_right = 653.0
+offset_bottom = 370.0
+texture = ExtResource("7_thd42")
 
 [connection signal="pressed" from="StartButton/TextureButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="AlbumButton2/TextureButton" to="." method="_on_album_button_pressed"]
