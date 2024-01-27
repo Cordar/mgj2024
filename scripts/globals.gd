@@ -11,6 +11,8 @@ var is_meme_found = {
 	Meme.Cow: false,
 	Meme.InfernalGirl: false,
 };
+var levelCheckpoint: int = 0;
+var lastCheckpoint: Vector2 = Vector2(0, 0);
 
 var deaths: int = 0;
 
@@ -35,7 +37,16 @@ func unlock_meme(meme: Meme) -> void:
 func save_game():
 	var save_game_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	# JSON provides a static method to serialized JSON string.
-	var json_string = JSON.stringify({"is_meme_found": is_meme_found})
+	var json_string = JSON.stringify(
+		{
+			"is_meme_found": is_meme_found,
+			"last_checkpoint": {
+			"x": lastCheckpoint.x,
+			"y": lastCheckpoint.y,
+			},
+			"level_checkpoint": levelCheckpoint,
+		}
+	)
 
 	# Store the save dictionary as a new line in the save file.
 	save_game_file.store_line(json_string)
@@ -70,10 +81,19 @@ func load_game():
 			var value = loaded_is_meme_found[key]
 			is_meme_found[int(key)] = value
 
+		# Load checkpoint data
+		var loaded_last_checkpoint = load_data["last_checkpoint"]
+		lastCheckpoint = Vector2(loaded_last_checkpoint["x"], loaded_last_checkpoint["y"])
+
+		# Load level checkpoint data
+		levelCheckpoint = load_data["level_checkpoint"]
+
 func reset_game():
 	is_meme_found = {
 		Meme.Monkey: false,
 		Meme.Cow: false,
 		Meme.InfernalGirl: false,
 	};
+	lastCheckpoint = Vector2(0, 0);
+	levelCheckpoint = 0;
 	save_game();
