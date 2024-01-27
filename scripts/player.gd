@@ -15,7 +15,9 @@ func _ready():
 func updateAnimation():
 	if velocity.x ==0: animations.play("idle")
 	if velocity.x != 0: animations.play("run")
-	if velocity.y>0: animations.play("jump")
+	if Input.is_key_pressed(KEY_SPACE): 
+		animations.play("jump")
+	
 	
 	
 	if Input.is_action_just_pressed("ui_left"):
