@@ -102,7 +102,6 @@ _data = {
 script = ExtResource("1_voref")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.624995, 113.311)
 scale = Vector2(0.387, 1)
 shape = SubResource("RectangleShape2D_pg85q")
 
@@ -114,7 +113,6 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(-0.624996, 107.311)
 scale = Vector2(0.642188, 0.653883)
 texture = ExtResource("2_1dpvg")
 hframes = 8
