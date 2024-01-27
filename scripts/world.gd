@@ -22,9 +22,11 @@ func _on_shitmeter_shit_meter_is_full():
 	die()
 
 func die():
-	get_tree().paused = true
-	await get_tree().create_timer(1.0).timeout
-	get_tree().paused = false
+	var lose_screen = load("res://scenes/UI/lose_screen.tscn")
+	var lose_screen_instance = lose_screen.instantiate()
+	lose_screen_instance.set_name("lose_screen")
+	$CanvasLayer.add_child(lose_screen_instance)
+	await get_tree().create_timer(3.0).timeout
 	get_tree().reload_current_scene()
 	Globals.deaths += 1
 	setDeathsLabel()
