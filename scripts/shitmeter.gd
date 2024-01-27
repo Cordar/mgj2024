@@ -1,5 +1,6 @@
 extends Control
 
+var oldAmount = 0;
 var amount = 0;
 @export var increaseRate = 10;
 
@@ -13,7 +14,8 @@ var amount = 0;
 @export var image3: Texture2D;
 @export var image4: Texture2D;
 
-signal ShitMeterIsFull()
+signal full()
+signal half_full()
 
 
 func _process(_delta):
@@ -24,13 +26,20 @@ func _process(_delta):
 	elif amount > threshhold3 and amount <= threshhold4:
 		$Image.texture = image4
 	elif amount > threshhold4:
-		amount = threshhold4
-		ShitMeterIsFull.emit()
+		full.emit()
 		return
 	else:
 		$Image.texture = image1
 	amount += increaseRate * _delta
 
 func setAmount(_amount: int) -> void:
+	oldAmount = amount
 	amount = _amount
+
+	if oldAmount < threshhold2 and amount >= threshhold2:
+		half_full.emit()
+	
+	if oldAmount < threshhold4 and amount >= threshhold4:
+		full.emit()
+
 

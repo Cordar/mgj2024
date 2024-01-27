@@ -7,6 +7,7 @@ const SPEED = 190.0
 const JUMP_VELOCITY = -510.0
 
 var previousPosition = Vector2.ZERO
+var needsToiletNow = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -19,7 +20,6 @@ func updateAnimation():
 		animations.play("jump")
 	elif position.y > previousPosition.y: 
 		animations.play("fall_normal")
-		print_debug("falll")
 	elif velocity.x != 0:
 		animations.play("run")
 	else:
@@ -39,6 +39,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		animations.play("jump")
 	previousPosition = position
 
 	# Get the input direction and handle the movement/deceleration.

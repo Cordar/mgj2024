@@ -25,3 +25,7 @@ func die():
 
 func setDeathsLabel():
 	deathCounterLabel.text = str(Globals.deaths)
+
+
+func _on_shitmeter_half_full():
+	$Player.needsToiletNow = true
