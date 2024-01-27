@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu6jwnijecdhm"]
+[gd_scene load_steps=10 format=3 uid="uid://bu6jwnijecdhm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_voref"]
 [ext_resource type="Texture2D" uid="uid://8ashppxvtoft" path="res://assets/player/Group_5.png" id="2_1dpvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg85q"]
-size = Vector2(215.628, 95.116)
+size = Vector2(238.794, 100.63)
 
 [sub_resource type="Animation" id="Animation_ngsov"]
 length = 0.5
@@ -42,6 +42,19 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_heece"]
 resource_name = "jump"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2)]
+}
 
 [sub_resource type="Animation" id="Animation_2r2sh"]
 resource_name = "run"
@@ -60,11 +73,28 @@ tracks/0/keys = {
 "values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(4, 1), Vector2i(6, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_spjj5"]
+resource_name = "jump_fart"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 3), Vector2i(3, 2), Vector2i(4, 2)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hpwi5"]
 _data = {
 "RESET": SubResource("Animation_ngsov"),
 "idle": SubResource("Animation_ll35t"),
 "jump": SubResource("Animation_heece"),
+"jump_fart": SubResource("Animation_spjj5"),
 "run": SubResource("Animation_2r2sh")
 }
 
@@ -72,7 +102,7 @@ _data = {
 script = ExtResource("1_voref")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-280.5, -311)
+position = Vector2(-287, -315)
 scale = Vector2(0.561152, 1.45086)
 shape = SubResource("RectangleShape2D_pg85q")
 
