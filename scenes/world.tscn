@@ -1,11 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://7o4b7wxe8i5t"]
+[gd_scene load_steps=5 format=3 uid="uid://7o4b7wxe8i5t"]
 
 [ext_resource type="PackedScene" uid="uid://bu6jwnijecdhm" path="res://scenes/player.tscn" id="1_vby6k"]
-[ext_resource type="PackedScene" uid="uid://br8e4y8ixeqf2" path="res://scenes/level_0.tscn" id="2_llr8p"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="2_3bff8"]
+[ext_resource type="PackedScene" uid="uid://w61eik3axh2m" path="res://scenes/level_0.tscn" id="2_llr8p"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ud56r"]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_vby6k")]
-position = Vector2(453, 367)
+position = Vector2(-455, -74)
 
 [node name="Level" parent="." instance=ExtResource("2_llr8p")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-455, -74)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("2_ud56r")
+
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+position = Vector2(-455, -74)
+script = ExtResource("2_3bff8")
+priority_override = false
+priority = 0
+zoom = Vector2(1, 1)
+follow_mode = 2
+follow_target = NodePath("../Player")
+follow_parameters/target_offset = Vector2(0, 0)
+follow_parameters/damping = true
+follow_parameters/damping_value = 2.0
+frame_preview = true
+pixel_perfect = false
+limit/draw_limits = false
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+limit/limit_node_target = NodePath("")
+limit/smoothed = false
+tween_parameters = null
+tween_on_load = true
+inactive_update_mode = 0
