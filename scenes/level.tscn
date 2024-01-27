@@ -8,5 +8,3 @@
 tile_set = ExtResource("1_rj480")
 format = 2
 layer_0/tile_data = PackedInt32Array(1441812, 5, 0, 1441815, 65541, 0, 1441816, 131077, 0, 1441817, 131077, 0, 1441818, 131077, 0, 1441819, 131077, 0, 1441820, 196613, 0)
-
-[node name="Collisions" type="Node2D" parent="."]

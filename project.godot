@@ -14,3 +14,7 @@ config/name="Gotta Catch Ememe All"
 run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://scripts/globals.gd"
