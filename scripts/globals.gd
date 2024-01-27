@@ -3,6 +3,7 @@ extends Node
 var memeMonkey = "Monkey";
 var memeCow = "Cow";
 var memeInfernalGirl = "InfernalGirl";
+var memeBlackFuneral = "BlackFuneral";
 
 var is_meme_found;
 var levelCheckpoint: int;
@@ -32,6 +33,9 @@ func unlock_meme(meme: String) -> void:
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
 func save_game():
+	if not FileAccess.file_exists("user://savegame.save"):
+		reset_game()
+		
 	var save_game_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	# JSON provides a static method to serialized JSON string.
 	var json_string = JSON.stringify(
@@ -44,8 +48,6 @@ func save_game():
 			"level_checkpoint": levelCheckpoint,
 		}
 	)
-
-	print(json_string)
 
 	# Store the save dictionary as a new line in the save file.
 	save_game_file.store_line(json_string)
@@ -93,6 +95,7 @@ func reset_game():
 		"memeMonkey": false,
 		"memeCow": false,
 		"memeInfernalGirl": false,
+		"memeBlackFuneral": false,
 	};
 	lastCheckpoint = Vector2(0, 0);
 	levelCheckpoint = 0;

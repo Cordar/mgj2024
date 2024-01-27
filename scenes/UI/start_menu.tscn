@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djpsmaxn24h0"]
+[gd_scene load_steps=9 format=3 uid="uid://djpsmaxn24h0"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_onm48"]
 [ext_resource type="Texture2D" uid="uid://msckc61jnjg5" path="res://assets/images/portada.png" id="2_6aq2t"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c8a8lf7vr8t4b" path="res://assets/images/button_intro_border.png" id="3_kyd7r"]
 [ext_resource type="Texture2D" uid="uid://bec8yxivk5sf" path="res://assets/images/button_intro_hover_play.png" id="4_r73cf"]
 [ext_resource type="Texture2D" uid="uid://bnooinp2fgrm8" path="res://assets/images/button_intro_hover_album.png" id="5_54p6w"]
-[ext_resource type="Texture2D" uid="uid://c57wrj7vy8uoc" path="res://assets/images/ohshit_logo2.png" id="7_thd42"]
+[ext_resource type="FontFile" uid="uid://cnpwgdap07pxo" path="res://assets/fonts/Barrio-Regular.ttf" id="6_tist1"]
+[ext_resource type="Texture2D" uid="uid://ncy3w3ufjrch" path="res://assets/images/ohshit_logo2.png" id="7_thd42"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -47,11 +48,12 @@ texture_hover = ExtResource("4_r73cf")
 
 [node name="Label" type="Label" parent="StartButton"]
 layout_mode = 0
-offset_left = 255.0
-offset_top = 6.0
-offset_right = 480.0
-offset_bottom = 105.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 249.0
+offset_top = 13.0
+offset_right = 474.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0.290196, 0.227451, 0.168627, 1)
+theme_override_fonts/font = ExtResource("6_tist1")
 theme_override_font_sizes/font_size = 72
 text = "JOGAR"
 
@@ -80,11 +82,12 @@ texture_hover = ExtResource("5_54p6w")
 
 [node name="Label" type="Label" parent="AlbumButton2"]
 layout_mode = 0
-offset_left = 215.0
-offset_top = 3.0
-offset_right = 952.0
-offset_bottom = 102.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 86.0
+offset_top = 17.0
+offset_right = 823.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.262745, 0.207843, 0.152941, 1)
+theme_override_fonts/font = ExtResource("6_tist1")
 theme_override_font_sizes/font_size = 72
 text = "PALS
 "
