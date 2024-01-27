@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://bqneljg308osu"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bqneljg308osu"]
 
 [ext_resource type="Texture2D" uid="uid://b1oex6a4un0q7" path="res://assets/tilemap_terrain.png" id="1_f6b4k"]
 [ext_resource type="PackedScene" uid="uid://djsat07na365n" path="res://scenes/obstacles/block_appear.tscn" id="2_p23jm"]
 [ext_resource type="PackedScene" uid="uid://d2lsns0io8onr" path="res://scenes/obstacles/block_appear_spikes.tscn" id="3_vovb6"]
+[ext_resource type="PackedScene" uid="uid://6wnmje3yr2f6" path="res://scenes/obstacles/block_disappear.tscn" id="4_yqrbj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjau3"]
 resource_name = "terrain"
@@ -368,6 +369,8 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ck8b1"]
 scenes/1/scene = ExtResource("2_p23jm")
 scenes/3/scene = ExtResource("3_vovb6")
+scenes/4/scene = ExtResource("4_yqrbj")
+scenes/5/scene = ExtResource("4_yqrbj")
 
 [resource]
 tile_size = Vector2i(64, 64)
