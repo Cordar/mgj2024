@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7o4b7wxe8i5t"]
+[gd_scene load_steps=10 format=3 uid="uid://7o4b7wxe8i5t"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_76qqt"]
 [ext_resource type="PackedScene" uid="uid://bu6jwnijecdhm" path="res://scenes/player.tscn" id="1_vby6k"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ud56r"]
 [ext_resource type="PackedScene" uid="uid://w61eik3axh2m" path="res://scenes/level_0.tscn" id="3_7i2ug"]
 [ext_resource type="PackedScene" uid="uid://ceb1x1e88733" path="res://scenes/UI/shitmeter.tscn" id="6_rwgpu"]
-[ext_resource type="PackedScene" uid="uid://bgw3h3p7wjodm" path="res://scenes/UI/pause_menu.tscn" id="7_j2v8q"]
+[ext_resource type="PackedScene" path="res://scenes/UI/pause_menu.tscn" id="7_j2v8q"]
+[ext_resource type="AudioStream" uid="uid://bd3dvblf5u5jr" path="res://assets/sounds/musica_1.mp3" id="8_0ij4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cf68"]
 size = Vector2(50, 44)
@@ -93,6 +94,10 @@ position = Vector2(2641, -340)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(15, -12)
 shape = SubResource("RectangleShape2D_6cf68")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_0ij4l")
+autoplay = true
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="full" from="CanvasLayer/HUD/Shitmeter" to="." method="_on_shitmeter_shit_meter_is_full"]
