@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://bqneljg308osu" path="res://resources/tileset.tres" id="1_11577"]
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_11577")
