@@ -19,6 +19,9 @@ func _on_shitmeter_shit_meter_is_full():
 	die()
 
 func die():
+	get_tree().paused = true
+	await get_tree().create_timer(1.0).timeout
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 	Globals.deaths += 1
 	setDeathsLabel()
@@ -29,3 +32,7 @@ func setDeathsLabel():
 
 func _on_shitmeter_half_full():
 	$Player.needsToiletNow = true
+
+
+func _on_player_died():
+	die()

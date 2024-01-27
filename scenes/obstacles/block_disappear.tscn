@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://6wnmje3yr2f6"]
+
+[ext_resource type="Script" path="res://scripts/obstacles/block_disappear.gd" id="1_kq30m"]
+[ext_resource type="Texture2D" uid="uid://b1oex6a4un0q7" path="res://assets/tilemap_terrain.png" id="2_glkjm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1gwg"]
+size = Vector2(67, 63)
+
+[node name="BlockAppear" type="Node2D"]
+script = ExtResource("1_kq30m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_glkjm")
+region_enabled = true
+region_rect = Rect2(387.045, 582.021, 57.1305, 57.481)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_w1gwg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
