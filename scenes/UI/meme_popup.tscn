@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://c44gutf2ij13k"]
+
+[ext_resource type="Script" path="res://scripts/meme_popup.gd" id="1_ovlcd"]
+[ext_resource type="Texture2D" uid="uid://dk5jaw0ftel6n" path="res://assets/images/meme_monkey.png" id="1_qrgbk"]
+
+[sub_resource type="Animation" id="Animation_mbbag"]
+resource_name = "show_and_disappear"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(443, -429), Vector2(311, 10), Vector2(486, 21), Vector2(282, -428)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_31sfe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(486, -184)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btiha"]
+_data = {
+"RESET": SubResource("Animation_31sfe"),
+"show_and_disappear": SubResource("Animation_mbbag")
+}
+
+[node name="TextureRect" type="TextureRect"]
+offset_left = 486.0
+offset_top = -184.0
+offset_right = 2406.0
+offset_bottom = 896.0
+texture = ExtResource("1_qrgbk")
+stretch_mode = 2
+script = ExtResource("1_ovlcd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_btiha")
+}
+autoplay = "show_and_disappear"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

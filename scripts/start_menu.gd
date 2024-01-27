@@ -2,7 +2,6 @@ extends Control
 
 
 func _on_start_button_pressed():
-	Globals.unlock_meme(Globals.Meme.InfernalGirl)
 	get_tree().change_scene_to_file("res://scenes/UI/intro_scene.tscn")
 
 

@@ -8,6 +8,10 @@ func _input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setDeathsLabel()
+	Globals.unlock_meme(Globals.Meme.InfernalGirl)
+	Globals.unlock_meme(Globals.Meme.InfernalGirl)
+	Globals.unlock_meme(Globals.Meme.InfernalGirl)
+	Globals.unlock_meme(Globals.Meme.InfernalGirl)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
