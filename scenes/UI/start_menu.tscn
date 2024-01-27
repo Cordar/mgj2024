@@ -101,10 +101,11 @@ text = "(not Pokemons)"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 331.0
-offset_top = 138.0
-offset_right = 653.0
-offset_bottom = 370.0
+offset_left = 255.0
+offset_top = 62.0
+offset_right = 577.0
+offset_bottom = 294.0
+scale = Vector2(1.39172, 1.39172)
 texture = ExtResource("7_thd42")
 
 [connection signal="pressed" from="StartButton/TextureButton" to="." method="_on_start_button_pressed"]

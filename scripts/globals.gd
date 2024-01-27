@@ -18,8 +18,17 @@ func _ready():
 	load_game();
 
 func unlock_meme(meme: Meme) -> void:
+	if is_meme_found[meme]:
+		return;
 	is_meme_found[meme] = true;
 	save_game();
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.set_name("canvas_layer")
+	add_child(canvas_layer)
+	var meme_popup = load("res://scenes/UI/meme_popup.tscn")
+	var meme_popup_instance = meme_popup.instantiate()
+	meme_popup_instance.set_name("meme_popup")
+	canvas_layer.add_child(meme_popup_instance)
 
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
