@@ -8,6 +8,9 @@ func _input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setDeathsLabel()
+	if (Globals.levelCheckpoint == 1):
+		load_level1()
+	$Player.position = Globals.lastCheckpoint
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,12 +40,15 @@ func _on_shitmeter_half_full():
 func _on_player_died():
 	die()
 
-func go_to_next_level():
+func load_level1():
 	$Level.queue_free()
 	var newLevel = load("res://scenes/level_1.tscn")
 	var newLevel_instance = newLevel.instantiate()
 	newLevel_instance.set_name("Level")
 	add_child(newLevel_instance)
+
+func go_to_next_level():
+	load_level1()
 	$Player.position = Vector2(12, -281)
 	Globals.levelCheckpoint = 1
 	Globals.lastCheckpoint = $Player.position
