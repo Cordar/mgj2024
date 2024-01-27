@@ -1,4 +1,6 @@
 extends CharacterBody2D
+@onready var animations = $AnimationPlayer
+@onready var playerSprite = $Sprite2D
 
 
 const SPEED = 190.0
@@ -9,9 +11,20 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	pass
-
+	
+func updateAnimation():
+	if velocity.x ==0: animations.play("idle")
+	if velocity.x != 0: animations.play("run")
+	if velocity.y>0: animations.play("jump")
+	
+	
+	if Input.is_action_just_pressed("ui_left"):
+		playerSprite.flip_h=true
+	elif Input.is_action_just_pressed("ui_right"):
+		playerSprite.flip_h=false
 
 func _physics_process(delta):
+	updateAnimation()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
