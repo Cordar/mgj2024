@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmasvqowh4iyq"]
+[gd_scene load_steps=12 format=3 uid="uid://cmasvqowh4iyq"]
 
 [ext_resource type="Script" path="res://scripts/intro_scene.gd" id="1_8hdq2"]
 [ext_resource type="Texture2D" uid="uid://hkqmpmul40bc" path="res://assets/images/intro1.png" id="1_fp1wv"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://mrv0yhv2rm88" path="res://assets/images/intro3.png" id="3_st8sg"]
 [ext_resource type="Texture2D" uid="uid://texa2iraufw7" path="res://assets/images/intro4.png" id="4_ej1x5"]
 [ext_resource type="FontFile" uid="uid://cgqps8sm72ony" path="res://assets/fonts/SueEllenFrancisco-Regular.ttf" id="6_2kgfr"]
+[ext_resource type="Texture2D" uid="uid://ccjl7urb55ssh" path="res://assets/images/button_album_hover.png" id="7_lfclh"]
+[ext_resource type="FontFile" uid="uid://d2yuur2u6ygkd" path="res://assets/fonts/Capriola-Regular.ttf" id="8_4wgiu"]
 
 [sub_resource type="Animation" id="Animation_xk0hl"]
 length = 0.001
@@ -127,4 +129,24 @@ text = "Querido diario, Hoy me he puesto monísima para ir a la oficina y he apr
 "
 shortcut_keys_enabled = false
 
+[node name="SkipIntroButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1752.0
+offset_top = 28.0
+offset_right = 1877.0
+offset_bottom = 223.0
+scale = Vector2(1, 0.52)
+texture_normal = ExtResource("7_lfclh")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 938.0
+offset_right = 434.0
+offset_bottom = 1055.0
+theme_override_fonts/font = ExtResource("8_4wgiu")
+theme_override_font_sizes/font_size = 52
+text = "Pasar intro"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

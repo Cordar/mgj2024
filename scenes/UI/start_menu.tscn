@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bec8yxivk5sf" path="res://assets/images/button_intro_hover_play.png" id="4_r73cf"]
 [ext_resource type="Texture2D" uid="uid://bnooinp2fgrm8" path="res://assets/images/button_intro_hover_album.png" id="5_54p6w"]
 [ext_resource type="FontFile" uid="uid://cnpwgdap07pxo" path="res://assets/fonts/Barrio-Regular.ttf" id="6_tist1"]
-[ext_resource type="Texture2D" uid="uid://c57wrj7vy8uoc" path="res://assets/images/ohshit_logo2.png" id="7_thd42"]
+[ext_resource type="Texture2D" uid="uid://ncy3w3ufjrch" path="res://assets/images/ohshit_logo2.png" id="7_thd42"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
