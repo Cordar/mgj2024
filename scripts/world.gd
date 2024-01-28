@@ -49,10 +49,8 @@ func updateDeathCounter():
 		Globals.unlock_meme(Globals.memeThisIsFine)
 	if Globals.deaths >= 20:
 		Globals.unlock_meme(Globals.memeBlackFuneral)
-	if Globals.deaths >= 30:
-		Globals.unlock_meme(Globals.memeHereWeGoAgain)
 	if Globals.deaths >= 50:
-		Globals.unlock_meme(Globals.memeFireGirl)
+		Globals.unlock_meme(Globals.memeHereWeGoAgain)
 	setDeathsLabel()
 	
 func setDeathsLabel():
