@@ -1,6 +1,8 @@
 extends Node2D
 @export var deathCounterLabel: Label
 
+const poopedSound = preload("res://assets/sounds/Voces/me_cague.wav")
+
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
@@ -13,9 +15,15 @@ func _ready():
 	$Player.position = Globals.lastCheckpoint
 	$AudioStreamPlayer2D.play(Globals.musicProgress)
 
+var playingShitThing = false
 
 func _on_shitmeter_shit_meter_is_full():
+	if playingShitThing:
+		return
+	playingShitThing = true
 	Globals.unlock_meme(Globals.memePoopedPants)
+	playSound(poopedSound)
+	await $EffectsPlayer.finished
 	die()
 
 func die():
@@ -36,6 +44,7 @@ func die():
 	await get_tree().create_timer(1.0).timeout
 	$Player.invincible = false
 	$CanvasLayer/HUD/Shitmeter.reset()
+	playingShitThing = false
 	
 
 func updateDeathCounter():
@@ -87,4 +96,5 @@ func _on_area_2d_body_entered(body:Node2D):
 		$Area2D.queue_free()
 
 func playSound(sound):
-	$EffectsPlayer.play(sound)
+	$EffectsPlayer.stream = sound
+	$EffectsPlayer.play()

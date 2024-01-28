@@ -71,7 +71,7 @@ anchor_top = 1.0
 anchor_right = 0.0
 grow_horizontal = 1
 grow_vertical = 0
-increaseRate = 1
+increaseRate = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DeathCounter" type="Label" parent="CanvasLayer/HUD"]

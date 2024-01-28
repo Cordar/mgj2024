@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmasvqowh4iyq"]
+[gd_scene load_steps=13 format=3 uid="uid://cmasvqowh4iyq"]
 
 [ext_resource type="Script" path="res://scripts/intro_scene.gd" id="1_8hdq2"]
 [ext_resource type="Texture2D" uid="uid://hkqmpmul40bc" path="res://assets/images/intro1.png" id="1_fp1wv"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cgqps8sm72ony" path="res://assets/fonts/SueEllenFrancisco-Regular.ttf" id="6_2kgfr"]
 [ext_resource type="FontFile" uid="uid://d2yuur2u6ygkd" path="res://assets/fonts/Capriola-Regular.ttf" id="8_4wgiu"]
 [ext_resource type="AudioStream" uid="uid://j4cs0cpdp7dm" path="res://assets/sounds/SFX1/intro escribir.wav" id="8_g80gd"]
+[ext_resource type="AudioStream" uid="uid://cr5t3sgbs326" path="res://assets/sounds/Voces/me_cago.wav" id="9_xn8jd"]
 
 [sub_resource type="Animation" id="Animation_xk0hl"]
 length = 0.001
@@ -23,10 +24,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_fp1wv")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../VoiceAudio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rww30"]
 resource_name = "intro_scene"
-length = 22.0
+length = 15.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,7 +47,7 @@ tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 8, 13.2, 18.5),
+"times": PackedFloat32Array(0, 5.3, 8.7, 12.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("1_fp1wv"), ExtResource("2_j6h8i"), ExtResource("3_st8sg"), ExtResource("4_ej1x5")]
@@ -46,7 +59,7 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 8, 13.2, 18.5),
+"times": PackedFloat32Array(0.1, 5.5, 8.8, 12.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": ["Querido diario, Hoy me he puesto monísima para ir a la oficina y he aprovechado que me apetecía un café para darme un paseo y lucirme un poco"],
@@ -69,7 +82,7 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 7.8, 13.1, 18.4),
+"times": PackedFloat32Array(0, 5.3, 8.7, 12.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -84,6 +97,18 @@ tracks/2/keys = {
 "args": [],
 "method": &"cleanText"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../VoiceAudio:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(12.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t2fab"]
@@ -142,6 +167,9 @@ text = "Pasar intro"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_g80gd")
 autoplay = true
+
+[node name="VoiceAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_xn8jd")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
