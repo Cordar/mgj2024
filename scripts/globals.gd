@@ -23,7 +23,6 @@ const level0Scene = preload("res://scenes/level_0.tscn")
 const level1Scene = preload("res://scenes/level_1.tscn")
 
 func _ready():
-	reset_game();
 	initVariables();
 	load_game();
 

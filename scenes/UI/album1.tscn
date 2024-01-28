@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://hpufuj3y8smp"]
+[gd_scene load_steps=9 format=3 uid="uid://hpufuj3y8smp"]
 
 [ext_resource type="Script" path="res://scripts/album.gd" id="1_ls0cq"]
 [ext_resource type="PackedScene" uid="uid://btd48ejfqlphu" path="res://scenes/UI/album_meme.tscn" id="2_prs7e"]
 [ext_resource type="Texture2D" uid="uid://cjbqj5svivmeu" path="res://assets/images/memes/BlackFuneral.webp" id="3_7h0xd"]
 [ext_resource type="Texture2D" uid="uid://635k4w8y4xm8" path="res://assets/images/memes/BaxaApproves.jpg" id="4_4ll7n"]
+[ext_resource type="Texture2D" uid="uid://bqne4cyvqcccx" path="res://assets/images/memes/GreatThinker.png" id="5_osypk"]
 [ext_resource type="Texture2D" uid="uid://d2jdplmmevggr" path="res://assets/images/album.png" id="6_ppu8n"]
 [ext_resource type="Texture2D" uid="uid://brgg06oiwk6ui" path="res://assets/images/button_album.png" id="7_eyg2f"]
 [ext_resource type="Texture2D" uid="uid://ccjl7urb55ssh" path="res://assets/images/button_album_hover.png" id="8_de2b1"]
@@ -29,13 +30,22 @@ texture = ExtResource("3_7h0xd")
 meme = "BlackFuneral"
 
 [node name="meme2" parent="memes" instance=ExtResource("2_prs7e")]
-offset_left = 1047.0
-offset_top = 188.0
-offset_right = 1421.0
-offset_bottom = 447.0
+offset_left = 1131.0
+offset_top = 264.0
+offset_right = 2011.0
+offset_bottom = 759.0
 scale = Vector2(0.503932, 0.503932)
 texture = ExtResource("4_4ll7n")
 meme = "BaxaApproves"
+
+[node name="meme3" parent="memes" instance=ExtResource("2_prs7e")]
+offset_left = 969.0
+offset_top = 635.0
+offset_right = 2929.0
+offset_bottom = 2105.0
+scale = Vector2(0.253244, 0.253244)
+texture = ExtResource("5_osypk")
+meme = "GreatThinker"
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0

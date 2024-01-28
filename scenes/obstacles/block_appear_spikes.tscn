@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://chpklgkc8owdl" path="res://scenes/obstacles/spikes.tscn" id="3_ka1fq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1gwg"]
-size = Vector2(88, 84)
+size = Vector2(86, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eeotg"]
 size = Vector2(54, 58)
@@ -16,7 +16,7 @@ script = ExtResource("1_bpji1")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2.5, 1)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_w1gwg")
 
 [node name="Block" type="StaticBody2D" parent="."]
@@ -30,6 +30,7 @@ region_rect = Rect2(387.045, 582.021, 57.1305, 57.481)
 shape = SubResource("RectangleShape2D_eeotg")
 
 [node name="spikes" type="Node2D" parent="."]
+visible = false
 
 [node name="Spikes" parent="spikes" instance=ExtResource("3_ka1fq")]
 position = Vector2(0, -56)
