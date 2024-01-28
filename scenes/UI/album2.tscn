@@ -85,6 +85,10 @@ texture_pressed = ExtResource("8_ccsic")
 texture_hover = ExtResource("8_ccsic")
 flip_h = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1223, 92)
+scale = Vector2(0.306464, 0.618031)
+
 [connection signal="pressed" from="GoBackButton" to="." method="_on_go_back_button_pressed"]
 [connection signal="pressed" from="NextPageButton" to="." method="_on_next_page_button_pressed"]
 [connection signal="pressed" from="PreviousPageButton" to="." method="_on_previous_page_button_pressed"]

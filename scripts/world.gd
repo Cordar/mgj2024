@@ -90,3 +90,6 @@ func _on_area_2d_body_entered(body:Node2D):
 	if body.name == "Player":
 		go_to_next_level()
 		$Area2D.queue_free()
+
+func playSound(sound):
+	$EffectsPlayer.play(sound)

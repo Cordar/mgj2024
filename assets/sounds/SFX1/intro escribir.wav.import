@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://j4cs0cpdp7dm"
+path="res://.godot/imported/intro escribir.wav-d0260e188525b2b8f7a84fb62d10d5b0.sample"
+
+[deps]
+
+source_file="res://assets/sounds/SFX1/intro escribir.wav"
+dest_files=["res://.godot/imported/intro escribir.wav-d0260e188525b2b8f7a84fb62d10d5b0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
