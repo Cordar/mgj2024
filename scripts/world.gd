@@ -11,12 +11,7 @@ func _ready():
 	if (Globals.levelCheckpoint == 1):
 		load_level1()
 	$Player.position = Globals.lastCheckpoint
-	$AudioStreamPlayer2D.play(Globals.musicProgress)   
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	$AudioStreamPlayer2D.play(Globals.musicProgress)
 
 
 func _on_shitmeter_shit_meter_is_full():

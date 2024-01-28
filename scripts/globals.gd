@@ -27,9 +27,13 @@ const level1Scene = preload("res://scenes/level_1.tscn")
 
 const memeSound = preload("res://assets/sounds/SFX2/coger_meme.wav")
 
+var audioPlayer2D;
+
 func _ready():
 	initVariables();
 	load_game();
+	audioPlayer2D = AudioStreamPlayer2D.new()
+	add_child(audioPlayer2D)
 
 func _process(delta):
 	playedTime += delta;
@@ -73,8 +77,8 @@ func unlock_meme(meme: String) -> void:
 		return;
 	meme_popup_instance.set("texture", meme_texture)
 	canvas_layer.add_child(meme_popup_instance)
-	$EffectsPlayer.stream = memeSound
-	$EffectsPlayer.play()
+	audioPlayer2D.stream = memeSound
+	audioPlayer2D.play()
 
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.

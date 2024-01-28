@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://baiby8h578dqp"
-path="res://.godot/imported/joder.wav-91779d7403a32b4ae6dbe19543980347.sample"
+uid="uid://gilyjrwy7gkq"
+path="res://.godot/imported/joder_1.wav-8f354b860b1e3b37b0014521f8089839.sample"
 
 [deps]
 
-source_file="res://assets/sounds/voices/joder.wav"
-dest_files=["res://.godot/imported/joder.wav-91779d7403a32b4ae6dbe19543980347.sample"]
+source_file="res://assets/sounds/Voces/joder_1.wav"
+dest_files=["res://.godot/imported/joder_1.wav-8f354b860b1e3b37b0014521f8089839.sample"]
 
 [params]
 

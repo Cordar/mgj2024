@@ -18,7 +18,7 @@ signal full()
 signal half_full()
 
 func _ready():
-	$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.play(0.5)
 
 
 func _process(_delta):
