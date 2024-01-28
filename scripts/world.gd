@@ -3,6 +3,8 @@ extends Node2D
 
 const poopedSound = preload("res://assets/sounds/Voces/me_cague.wav")
 
+const lose_screen = preload("res://scenes/UI/lose_screen.tscn")
+
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
@@ -30,7 +32,6 @@ func die():
 	get_tree().paused = true
 	await get_tree().create_timer(0.5).timeout
 	
-	var lose_screen = load("res://scenes/UI/lose_screen.tscn")
 	var lose_screen_instance = lose_screen.instantiate()
 	lose_screen_instance.set_name("lose_screen")
 	$CanvasLayer.add_child(lose_screen_instance)
@@ -70,15 +71,15 @@ func _on_player_died():
 
 func load_level1():
 	if ($Level != null):
-		$Level.free()
-	var newLevel_instance = Globals.level1Scene.instantiate()
+		$Level.call_deferred("free")
+	var newLevel_instance = Globals.level1Scene.call_deferred("instantiate")
 	newLevel_instance.name = "Level"
 	add_child(newLevel_instance, true)
 
 func load_level0():
 	if ($Level != null):
-		$Level.free()
-	var newLevel_instance = Globals.level0Scene.instantiate()
+		$Level.call_deferred("free")
+	var newLevel_instance = Globals.level0Scene.call_deferred("instantiate")
 	newLevel_instance.name = "Level"
 	add_child(newLevel_instance, true)
 
