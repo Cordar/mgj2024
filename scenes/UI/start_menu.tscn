@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bec8yxivk5sf" path="res://assets/images/button_intro_hover_play.png" id="4_r73cf"]
 [ext_resource type="Texture2D" uid="uid://bnooinp2fgrm8" path="res://assets/images/button_intro_hover_album.png" id="5_54p6w"]
 [ext_resource type="FontFile" uid="uid://cnpwgdap07pxo" path="res://assets/fonts/Barrio-Regular.ttf" id="6_tist1"]
-[ext_resource type="Texture2D" uid="uid://c57wrj7vy8uoc" path="res://assets/images/ohshit_logo2.png" id="7_thd42"]
+[ext_resource type="Texture2D" uid="uid://ncy3w3ufjrch" path="res://assets/images/ohshit_logo2.png" id="7_thd42"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -48,11 +48,14 @@ texture_hover = ExtResource("4_r73cf")
 
 [node name="Label" type="Label" parent="StartButton"]
 layout_mode = 0
-offset_left = 249.0
-offset_top = 13.0
-offset_right = 474.0
-offset_bottom = 112.0
+offset_left = 99.0
+offset_top = 18.0
+offset_right = 324.0
+offset_bottom = 117.0
 theme_override_colors/font_color = Color(0.290196, 0.227451, 0.168627, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("6_tist1")
 theme_override_font_sizes/font_size = 72
 text = "JOGAR"
@@ -82,14 +85,17 @@ texture_hover = ExtResource("5_54p6w")
 
 [node name="Label" type="Label" parent="AlbumButton2"]
 layout_mode = 0
-offset_left = 115.0
+offset_left = 86.0
 offset_top = 21.0
-offset_right = 852.0
+offset_right = 539.0
 offset_bottom = 120.0
 theme_override_colors/font_color = Color(0.262745, 0.207843, 0.152941, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("6_tist1")
 theme_override_font_sizes/font_size = 72
-text = "MEMERANDUM
+text = "MEMES
 "
 
 [node name="TextureRect" type="TextureRect" parent="."]

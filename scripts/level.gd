@@ -1,16 +1,16 @@
-extends TextureRect
+extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-
-func _on_animation_player_animation_finished(anim_name:StringName):
-	if anim_name=="booggieboogie":
-		queue_free()
+func reset():
+	for i in $TileMap.get_children():
+		if i.has_method("reset"):
+			i.reset()
