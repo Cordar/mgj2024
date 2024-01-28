@@ -71,15 +71,15 @@ func _on_player_died():
 
 func load_level1():
 	if ($Level != null):
-		$Level.call_deferred("free")
-	var newLevel_instance = Globals.level1Scene.call_deferred("instantiate")
+		$Level.free()
+	var newLevel_instance = Globals.level1Scene.instantiate()
 	newLevel_instance.name = "Level"
 	add_child(newLevel_instance, true)
 
 func load_level0():
 	if ($Level != null):
-		$Level.call_deferred("free")
-	var newLevel_instance = Globals.level0Scene.call_deferred("instantiate")
+		$Level.free()
+	var newLevel_instance = Globals.level0Scene.instantiate()
 	newLevel_instance.name = "Level"
 	add_child(newLevel_instance, true)
 
