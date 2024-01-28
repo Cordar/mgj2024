@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://0ka2kygfwxu"]
+[gd_scene load_steps=8 format=3 uid="uid://0ka2kygfwxu"]
 
 [ext_resource type="Script" path="res://scripts/album.gd" id="1_rwga7"]
 [ext_resource type="PackedScene" uid="uid://btd48ejfqlphu" path="res://scenes/UI/album_meme.tscn" id="2_qvjv4"]
+[ext_resource type="Texture2D" uid="uid://csj1frk5pytpy" path="res://assets/images/memes/FireGirl.png" id="4_86nmf"]
 [ext_resource type="Texture2D" uid="uid://dk5jaw0ftel6n" path="res://assets/images/memes/Monkey.png" id="5_hwqyv"]
 [ext_resource type="Texture2D" uid="uid://d2jdplmmevggr" path="res://assets/images/album.png" id="6_6igdd"]
 [ext_resource type="Texture2D" uid="uid://brgg06oiwk6ui" path="res://assets/images/button_album.png" id="7_pagaj"]
@@ -20,13 +21,22 @@ page = 2
 [node name="memes" type="Node" parent="."]
 
 [node name="meme3" parent="memes" instance=ExtResource("2_qvjv4")]
-offset_left = 1109.0
-offset_top = 361.0
-offset_right = 1751.0
-offset_bottom = 780.0
-scale = Vector2(0.507905, 0.507905)
+offset_left = 1031.0
+offset_top = 431.0
+offset_right = 1673.0
+offset_bottom = 850.0
+scale = Vector2(0.885111, 0.885111)
 texture = ExtResource("5_hwqyv")
 meme = "Monkey"
+
+[node name="meme4" parent="memes" instance=ExtResource("2_qvjv4")]
+offset_left = 152.0
+offset_top = 246.0
+offset_right = 1352.0
+offset_bottom = 921.0
+scale = Vector2(0.507905, 0.507905)
+texture = ExtResource("4_86nmf")
+meme = "FireGirl"
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
