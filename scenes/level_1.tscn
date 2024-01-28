@@ -53,7 +53,6 @@ keyId = 3
 
 [node name="Key4" parent="." instance=ExtResource("4_h5pst")]
 position = Vector2(2729, -795)
-scale = Vector2(1, 1)
 keyId = 4
 
 [node name="Door" parent="." instance=ExtResource("5_klf58")]

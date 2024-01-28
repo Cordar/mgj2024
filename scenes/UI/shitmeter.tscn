@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceb1x1e88733"]
+[gd_scene load_steps=8 format=3 uid="uid://ceb1x1e88733"]
 
 [ext_resource type="Script" path="res://scripts/shitmeter.gd" id="1_r2jyx"]
 [ext_resource type="Texture2D" uid="uid://cx4yeqi7rxou1" path="res://assets/shitmeter/shitmeter1.png" id="1_xtrmp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://brh5r0ndae0di" path="res://assets/shitmeter/shitmeter3.png" id="3_qjxa1"]
 [ext_resource type="Texture2D" uid="uid://nd6dbvp07k5j" path="res://assets/shitmeter/shitmeter4.png" id="5_i4wtw"]
 [ext_resource type="Texture2D" uid="uid://73eu4dlg5ttk" path="res://assets/images/Icon-avatar-frame-live-in-Instagram-ClipRt-PNG.png" id="6_1p4xd"]
+[ext_resource type="AudioStream" uid="uid://br4slgq44hdng" path="res://assets/sounds/voices/correPaca.wav" id="7_04ttq"]
 
 [node name="Shitmeter" type="Control"]
 layout_mode = 3
@@ -37,3 +38,6 @@ offset_right = 2002.0
 offset_bottom = 1687.0
 scale = Vector2(0.153772, 0.153772)
 texture = ExtResource("6_1p4xd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_04ttq")

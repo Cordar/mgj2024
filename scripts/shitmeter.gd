@@ -17,6 +17,9 @@ var amount = 0;
 signal full()
 signal half_full()
 
+func _ready():
+	$AudioStreamPlayer2D.play()
+
 
 func _process(_delta):
 	if amount > threshhold1 and amount <= threshhold2:
@@ -37,6 +40,7 @@ func setAmount(_amount: int) -> void:
 	amount = _amount
 
 	if oldAmount < threshhold2 and amount >= threshhold2:
+		$AudioStreamPlayer2D.play()
 		half_full.emit()
 	
 	if oldAmount < threshhold4 and amount >= threshhold4:
