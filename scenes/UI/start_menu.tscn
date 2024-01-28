@@ -107,5 +107,9 @@ offset_bottom = 294.0
 scale = Vector2(1.39172, 1.39172)
 texture = ExtResource("7_thd42")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="StartButton/TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="pressed" from="StartButton/TextureButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="AlbumButton2/TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="pressed" from="AlbumButton2/TextureButton" to="." method="_on_album_button_pressed"]

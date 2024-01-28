@@ -25,11 +25,13 @@ func updateAnimation():
 	if dead:
 		animations.play("damage")
 		return
-	if position.y < previousPosition.y: 
+	if position.y < previousPosition.y:
 		animations.play("jump")
 	elif position.y > previousPosition.y: 
 		animations.play("fall_normal")
 	elif velocity.x != 0:
+		if ($AudioSteps.playing == false):
+			$AudioSteps.play()
 		animations.play("run")
 	else:
 		animations.play("idle")
@@ -47,6 +49,8 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		if ($AudioJump.playing == false):
+			$AudioJump.play()
 		velocity.y = JUMP_VELOCITY
 	previousPosition = position
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bu6jwnijecdhm"]
+[gd_scene load_steps=15 format=3 uid="uid://bu6jwnijecdhm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_voref"]
 [ext_resource type="Texture2D" uid="uid://8ashppxvtoft" path="res://assets/player/Group_5.png" id="2_1dpvg"]
+[ext_resource type="AudioStream" uid="uid://ca2i3owlgmt6t" path="res://assets/sounds/SFX1/pasos.wav" id="3_a8y7l"]
+[ext_resource type="AudioStream" uid="uid://bc30txtkvj2u" path="res://assets/sounds/SFX2/saltar.wav" id="4_7b88d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg85q"]
 size = Vector2(118.863, 85)
@@ -186,3 +188,9 @@ texture = ExtResource("2_1dpvg")
 hframes = 8
 vframes = 4
 frame = 18
+
+[node name="AudioSteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a8y7l")
+
+[node name="AudioJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7b88d")

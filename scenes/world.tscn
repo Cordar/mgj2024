@@ -101,6 +101,8 @@ stream = ExtResource("8_unlgu")
 autoplay = true
 max_distance = 10000.0
 
+[node name="EffectsPlayer" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="full" from="CanvasLayer/HUD/Shitmeter" to="." method="_on_shitmeter_shit_meter_is_full"]
 [connection signal="half_full" from="CanvasLayer/HUD/Shitmeter" to="." method="_on_shitmeter_half_full"]

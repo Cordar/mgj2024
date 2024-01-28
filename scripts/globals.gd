@@ -25,6 +25,8 @@ var playedTime: int = 0;
 const level0Scene = preload("res://scenes/level_0.tscn")
 const level1Scene = preload("res://scenes/level_1.tscn")
 
+const memeSound = preload("res://assets/sounds/SFX2/coger_meme.wav")
+
 func _ready():
 	initVariables();
 	load_game();
@@ -51,8 +53,6 @@ func find_meme_texture(meme: String) -> Texture:
 		return pngTexture
 
 func unlock_meme(meme: String) -> void:
-	print(meme);
-	print(memes_unlocked);
 	if not memes_unlocked.has(meme):
 		print("Meme not found")
 		return;
@@ -73,6 +73,8 @@ func unlock_meme(meme: String) -> void:
 		return;
 	meme_popup_instance.set("texture", meme_texture)
 	canvas_layer.add_child(meme_popup_instance)
+	$EffectsPlayer.stream = memeSound
+	$EffectsPlayer.play()
 
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
