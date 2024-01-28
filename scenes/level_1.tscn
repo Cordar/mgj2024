@@ -82,13 +82,13 @@ labelMessage = "Out of Order"
 unlockMeme = "FireGirl"
 
 [node name="AppearingLabel3" parent="." instance=ExtResource("7_7v7tt")]
-position = Vector2(2484, -35)
+position = Vector2(2386, -44)
 labelMessage = "No es aquí pero buen trabajo!"
 unlockMeme = "Monkey"
 
-[node name="AppearingLabel2" parent="." instance=ExtResource("7_7v7tt")]
-position = Vector2(3793, 1399)
-labelMessage = "Time to die?"
+[node name="AppearingLabel4" parent="." instance=ExtResource("7_7v7tt")]
+position = Vector2(3684, 1397)
+labelMessage = "Pinchate, no hay otra opcion"
 unlockMeme = "GreatThinker"
 
 [node name="Label11" type="Label" parent="."]
