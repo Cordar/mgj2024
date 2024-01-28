@@ -20,6 +20,7 @@ func _process(delta):
 
 
 func _on_shitmeter_shit_meter_is_full():
+	Globals.unlock_meme(Globals.memePoopedPants)
 	die()
 
 func die():
@@ -39,6 +40,7 @@ func die():
 	get_tree().paused = false
 	await get_tree().create_timer(1.0).timeout
 	$Player.invincible = false
+	$CanvasLayer/HUD/Shitmeter.reset()
 	
 
 func updateDeathCounter():
@@ -47,6 +49,10 @@ func updateDeathCounter():
 		Globals.unlock_meme(Globals.memeThisIsFine)
 	if Globals.deaths >= 20:
 		Globals.unlock_meme(Globals.memeBlackFuneral)
+	if Globals.deaths >= 30:
+		Globals.unlock_meme(Globals.memeHereWeGoAgain)
+	if Globals.deaths >= 50:
+		Globals.unlock_meme(Globals.memeFireGirl)
 	setDeathsLabel()
 	
 func setDeathsLabel():

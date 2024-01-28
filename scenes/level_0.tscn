@@ -66,6 +66,7 @@ labelMessage = "Cuidao que te pincho"
 [node name="LabelOuch" parent="." instance=ExtResource("5_fkuqw")]
 position = Vector2(100, 226)
 labelMessage = "Ouch!"
+unlockMeme = "TheWhat"
 
 [node name="Label7" type="Label" parent="."]
 offset_left = 821.0

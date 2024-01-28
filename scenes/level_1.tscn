@@ -79,12 +79,17 @@ keyId = 4
 [node name="AppearingLabel" parent="." instance=ExtResource("7_7v7tt")]
 position = Vector2(3108, -1077)
 labelMessage = "Out of Order"
+unlockMeme = "FireGirl"
+
+[node name="AppearingLabel3" parent="." instance=ExtResource("7_7v7tt")]
+position = Vector2(2484, -35)
+labelMessage = "No es aquí pero buen trabajo!"
 unlockMeme = "Monkey"
 
 [node name="AppearingLabel2" parent="." instance=ExtResource("7_7v7tt")]
 position = Vector2(3793, 1399)
 labelMessage = "Time to die?"
-unlockMeme = "HereWeGoAgain"
+unlockMeme = "GreatThinker"
 
 [node name="Label11" type="Label" parent="."]
 offset_left = 2460.0

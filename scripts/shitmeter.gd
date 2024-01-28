@@ -42,4 +42,8 @@ func setAmount(_amount: int) -> void:
 	if oldAmount < threshhold4 and amount >= threshhold4:
 		full.emit()
 
+func reset() -> void:
+	amount = 0
+	$Image.texture = image1
+
 

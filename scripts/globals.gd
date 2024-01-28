@@ -7,6 +7,9 @@ var memeThisIsFine = "ThisIsFine";
 var memeBeen84Years = "Been84Years";
 var memeBaxaApproves = "BaxaApproves";
 var memeTheWhat = "TheWhat";
+var memeFireGirl = "FireGirl";
+var memeGreatThinker = "GreatThinker";
+var memePoopedPants = "PoopedPants";
 
 
 var memes_unlocked;
@@ -143,6 +146,9 @@ func initVariables():
 		memeBeen84Years: false,
 		memeBaxaApproves: false,
 		memeTheWhat: false,
+		memeFireGirl: false,
+		memeGreatThinker: false,
+		memePoopedPants: false,
 	};
 	lastCheckpoint = Vector2(-476, -780);
 	levelCheckpoint = 0;
