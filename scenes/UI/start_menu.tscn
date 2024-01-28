@@ -48,11 +48,14 @@ texture_hover = ExtResource("4_r73cf")
 
 [node name="Label" type="Label" parent="StartButton"]
 layout_mode = 0
-offset_left = 249.0
-offset_top = 13.0
-offset_right = 474.0
-offset_bottom = 112.0
+offset_left = 99.0
+offset_top = 18.0
+offset_right = 324.0
+offset_bottom = 117.0
 theme_override_colors/font_color = Color(0.290196, 0.227451, 0.168627, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("6_tist1")
 theme_override_font_sizes/font_size = 72
 text = "JOGAR"
@@ -82,14 +85,17 @@ texture_hover = ExtResource("5_54p6w")
 
 [node name="Label" type="Label" parent="AlbumButton2"]
 layout_mode = 0
-offset_left = 115.0
+offset_left = 86.0
 offset_top = 21.0
-offset_right = 852.0
+offset_right = 539.0
 offset_bottom = 120.0
 theme_override_colors/font_color = Color(0.262745, 0.207843, 0.152941, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("6_tist1")
 theme_override_font_sizes/font_size = 72
-text = "MEMERANDUM
+text = "MEMES
 "
 
 [node name="TextureRect" type="TextureRect" parent="."]
