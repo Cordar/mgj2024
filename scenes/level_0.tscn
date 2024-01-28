@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://w61eik3axh2m"]
+[gd_scene load_steps=6 format=3 uid="uid://w61eik3axh2m"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_g4e0w"]
 [ext_resource type="TileSet" uid="uid://bqneljg308osu" path="res://resources/tileset.tres" id="1_rj480"]
 [ext_resource type="PackedScene" uid="uid://cwsfsa73rpb2h" path="res://scenes/checkpoint.tscn" id="2_cgk5a"]
 [ext_resource type="FontFile" uid="uid://d2yuur2u6ygkd" path="res://assets/fonts/Capriola-Regular.ttf" id="3_eoaa2"]
+[ext_resource type="PackedScene" uid="uid://cg0c37j8oqan6" path="res://scenes/AppearingLabel.tscn" id="5_fkuqw"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_g4e0w")
@@ -19,6 +20,9 @@ position = Vector2(416, -109)
 [node name="Checkpoint2" parent="." instance=ExtResource("2_cgk5a")]
 position = Vector2(1378, -339)
 
+[node name="Checkpoint3" parent="." instance=ExtResource("2_cgk5a")]
+position = Vector2(2249, -85)
+
 [node name="Label" type="Label" parent="."]
 offset_left = 371.0
 offset_top = -180.0
@@ -27,27 +31,11 @@ offset_bottom = -148.0
 theme_override_fonts/font = ExtResource("3_eoaa2")
 text = "PLANTA = BUENA"
 
-[node name="Label2" type="Label" parent="."]
-offset_left = -346.0
-offset_top = -135.0
-offset_right = -301.0
-offset_bottom = -103.0
-theme_override_fonts/font = ExtResource("3_eoaa2")
-text = "CUIDAO!"
-
-[node name="Label3" type="Label" parent="."]
-offset_left = -109.0
-offset_top = -140.0
-offset_right = -64.0
-offset_bottom = -108.0
-theme_override_fonts/font = ExtResource("3_eoaa2")
-text = "OADIUC!"
-
 [node name="Label4" type="Label" parent="."]
-offset_left = -401.0
-offset_top = -696.0
-offset_right = -247.0
-offset_bottom = -629.0
+offset_left = 1632.0
+offset_top = -148.0
+offset_right = 1786.0
+offset_bottom = -81.0
 theme_override_fonts/font = ExtResource("3_eoaa2")
 text = "PARA NADA AQUÍ 
 HAY UNA TRAMPA"
@@ -56,49 +44,52 @@ HAY UNA TRAMPA"
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -397.0
-offset_top = -797.0
-offset_right = -307.0
-offset_bottom = -730.0
+offset_left = -474.0
+offset_top = -260.0
+offset_right = -271.0
+offset_bottom = -193.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_eoaa2")
 theme_override_font_sizes/font_size = 16
-text = "¿POR AHÍ? 
-¿SEGURO?"
+text = "Sonríe, estás en directo :)"
 
-[node name="Label6" type="Label" parent="."]
-offset_left = -403.0
-offset_top = -398.0
-offset_right = -249.0
-offset_bottom = -331.0
-theme_override_fonts/font = ExtResource("3_eoaa2")
-text = "BAXA 
-APPROVED"
+[node name="LabelBaxaApproved" parent="." instance=ExtResource("5_fkuqw")]
+position = Vector2(-316, -14)
+labelMessage = "Baxa Approved"
+unlockMeme = "BaxaApproves"
+
+[node name="LabelCuidao" parent="." instance=ExtResource("5_fkuqw")]
+position = Vector2(-96, -35)
+labelMessage = "Cuidao que te pincho"
+
+[node name="LabelOuch" parent="." instance=ExtResource("5_fkuqw")]
+position = Vector2(100, 226)
+labelMessage = "Ouch!"
 
 [node name="Label7" type="Label" parent="."]
-offset_left = -402.0
-offset_top = -470.0
-offset_right = -300.0
-offset_bottom = -411.0
+offset_left = 821.0
+offset_top = -164.0
+offset_right = 923.0
+offset_bottom = -105.0
 theme_override_fonts/font = ExtResource("3_eoaa2")
 text = "NO OLVIDES 
 SONREIR :D"
 
 [node name="Label8" type="Label" parent="."]
-offset_left = -389.0
-offset_top = -893.0
-offset_right = -295.0
-offset_bottom = -836.0
+offset_left = 1424.0
+offset_top = -522.0
+offset_right = 1518.0
+offset_bottom = -465.0
 theme_override_fonts/font = ExtResource("3_eoaa2")
 text = "TIC TAC 
 TIC TAC"
 
 [node name="Label9" type="Label" parent="."]
-offset_left = -404.0
-offset_top = -561.0
-offset_right = -205.0
-offset_bottom = -497.0
+offset_left = 1887.0
+offset_top = 1.0
+offset_right = 2086.0
+offset_bottom = 65.0
 size_flags_horizontal = 0
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_eoaa2")
@@ -106,29 +97,20 @@ text = "¿VES?
 PUEDES CONFIAR EN MI"
 
 [node name="Label10" type="Label" parent="."]
-offset_left = -160.0
-offset_top = -573.0
-offset_right = -98.0
-offset_bottom = -548.0
+offset_left = 2131.0
+offset_top = -92.0
+offset_right = 2193.0
+offset_bottom = -67.0
 size_flags_horizontal = 0
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_eoaa2")
 text = "O NO"
 
-[node name="Label11" type="Label" parent="."]
-offset_left = -407.0
-offset_top = -313.0
-offset_right = -227.0
-offset_bottom = -246.0
-theme_override_fonts/font = ExtResource("3_eoaa2")
-text = "PUERTA PARA 
-NADA SOSPECHOSA"
-
 [node name="Label12" type="Label" parent="."]
-offset_left = -150.0
-offset_top = -497.0
-offset_right = -77.0
-offset_bottom = -472.0
+offset_left = 1968.0
+offset_top = -295.0
+offset_right = 2041.0
+offset_bottom = -270.0
 size_flags_horizontal = 0
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_eoaa2")

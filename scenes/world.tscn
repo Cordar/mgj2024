@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://w61eik3axh2m" path="res://scenes/level_0.tscn" id="3_7i2ug"]
 [ext_resource type="PackedScene" uid="uid://ceb1x1e88733" path="res://scenes/UI/shitmeter.tscn" id="6_rwgpu"]
 [ext_resource type="PackedScene" uid="uid://bgw3h3p7wjodm" path="res://scenes/UI/pause_menu.tscn" id="7_j2v8q"]
-[ext_resource type="AudioStream" uid="uid://bd3dvblf5u5jr" path="res://assets/sounds/musica_1.mp3" id="8_0ij4l"]
+[ext_resource type="AudioStream" uid="uid://lwo4f56xbf4a" path="res://assets/sounds/musica_gameplay.wav" id="8_unlgu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cf68"]
 size = Vector2(50, 44)
@@ -97,8 +97,9 @@ shape = SubResource("RectangleShape2D_6cf68")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
-stream = ExtResource("8_0ij4l")
+stream = ExtResource("8_unlgu")
 autoplay = true
+max_distance = 10000.0
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="full" from="CanvasLayer/HUD/Shitmeter" to="." method="_on_shitmeter_shit_meter_is_full"]

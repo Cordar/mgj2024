@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ofkdq0v3811"]
+
+[ext_resource type="Texture2D" uid="uid://b1oex6a4un0q7" path="res://assets/tilemap_terrain.png" id="1_b4bmw"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_vl5j4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctman"]
+size = Vector2(61, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evrc1"]
+size = Vector2(77, 71)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_vl5j4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_b4bmw")
+region_enabled = true
+region_rect = Rect2(509.511, 380.612, 69.6674, 68.9843)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ctman")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_evrc1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

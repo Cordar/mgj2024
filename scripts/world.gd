@@ -31,14 +31,22 @@ func die():
 	lose_screen_instance.set_name("lose_screen")
 	$CanvasLayer.add_child(lose_screen_instance)
 	await get_tree().create_timer(2.5).timeout
-	Globals.deaths += 1
-	if Globals.deaths >= 10:
-		Globals.unlock_meme(Globals.memeBlackFuneral)
+	updateDeathCounter()
 	Globals.musicProgress = $AudioStreamPlayer2D.get_playback_position() 
 	$Player.position = Globals.lastCheckpoint
 	$Player.dead = false
 	$Level.reset()
 	get_tree().paused = false
+	await get_tree().create_timer(1.0).timeout
+	$Player.invincible = false
+	
+
+func updateDeathCounter():
+	Globals.deaths += 1
+	if Globals.deaths >= 10:
+		Globals.unlock_meme(Globals.memeThisIsFine)
+	if Globals.deaths >= 20:
+		Globals.unlock_meme(Globals.memeBlackFuneral)
 	setDeathsLabel()
 	
 func setDeathsLabel():
@@ -54,17 +62,17 @@ func _on_player_died():
 
 func load_level1():
 	if ($Level != null):
-		$Level.queue_free()
+		$Level.free()
 	var newLevel_instance = Globals.level1Scene.instantiate()
-	newLevel_instance.set_name("Level")
-	add_child(newLevel_instance)
+	newLevel_instance.name = "Level"
+	add_child(newLevel_instance, true)
 
 func load_level0():
 	if ($Level != null):
-		$Level.queue_free()
+		$Level.free()
 	var newLevel_instance = Globals.level0Scene.instantiate()
-	newLevel_instance.set_name("Level")
-	add_child(newLevel_instance)
+	newLevel_instance.name = "Level"
+	add_child(newLevel_instance, true)
 
 func go_to_next_level():
 	load_level1()

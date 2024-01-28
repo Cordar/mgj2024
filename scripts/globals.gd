@@ -1,9 +1,13 @@
 extends Node
 
 var memeMonkey = "Monkey";
-var memeCow = "Cow";
-var memeInfernalGirl = "InfernalGirl";
 var memeBlackFuneral = "BlackFuneral";
+var memeHereWeGoAgain = "HereWeGoAgain";
+var memeThisIsFine = "ThisIsFine";
+var memeBeen84Years = "Been84Years";
+var memeBaxaApproves = "BaxaApproves";
+var memeTheWhat = "TheWhat";
+
 
 var memes_unlocked;
 var levelCheckpoint: int;
@@ -13,22 +17,34 @@ var deaths: int = 0;
 
 var musicProgress: int = 0;
 
+var playedTime: int = 0;
+
 const level0Scene = preload("res://scenes/level_0.tscn")
 const level1Scene = preload("res://scenes/level_1.tscn")
 
 func _ready():
+	reset_game();
 	initVariables();
 	load_game();
+
+func _process(delta):
+	playedTime += delta;
+	if playedTime > 84:
+		unlock_meme(memeBeen84Years);
 
 func find_meme_texture(meme: String) -> Texture:
 	var pngTexture = load("res://assets/images/memes/" + str(meme) + ".png")
 	if pngTexture == null:
-		var webpTexture = load("res://assets/images/memes/" + str(meme) + ".webp")
-		if webpTexture == null:
-			print("Meme texture not found")
-			return null;
+		var jpgTexture = load("res://assets/images/memes/" + str(meme) + ".jpg")
+		if jpgTexture == null:
+			var webpTexture = load("res://assets/images/memes/" + str(meme) + ".webp")
+			if webpTexture == null:
+				print("Meme texture not found")
+				return null;
+			else:
+				return webpTexture
 		else:
-			return webpTexture
+			return jpgTexture
 	else:
 		return pngTexture
 
@@ -72,6 +88,7 @@ func save_game():
 			"y": lastCheckpoint.y,
 			},
 			"level_checkpoint": levelCheckpoint,
+			"played_time": playedTime,
 		}
 	)
 
@@ -104,7 +121,6 @@ func load_game():
 
 		# Load meme data
 		var loaded_memes_unlocked = load_data["memes_unlocked"]
-		print(loaded_memes_unlocked)
 		for key in loaded_memes_unlocked:
 			var value = loaded_memes_unlocked[key]
 			memes_unlocked[key] = value
@@ -116,12 +132,18 @@ func load_game():
 		# Load level checkpoint data
 		levelCheckpoint = load_data["level_checkpoint"]
 
+		# Load played time
+		playedTime = load_data["played_time"]
+
 func initVariables():
 	memes_unlocked = {
 		memeMonkey: false,
-		memeCow: false,
-		memeInfernalGirl: false,
 		memeBlackFuneral: false,
+		memeHereWeGoAgain: false,
+		memeThisIsFine: false,
+		memeBeen84Years: false,
+		memeBaxaApproves: false,
+		memeTheWhat: false,
 	};
 	lastCheckpoint = Vector2(-476, -780);
 	levelCheckpoint = 0;

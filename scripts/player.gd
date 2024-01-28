@@ -9,7 +9,10 @@ const JUMP_VELOCITY = -710.0
 var previousPosition = Vector2.ZERO
 var needsToiletNow = false
 
+var obtainedKeys = []
+
 var dead = false
+var invincible = false
 signal died()
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -59,5 +62,11 @@ func _physics_process(delta):
 
 
 func die():
+	if invincible:
+		return
 	dead = true
+	invincible = true
 	died.emit()
+
+func addKey(keyId):
+	obtainedKeys.append(keyId)

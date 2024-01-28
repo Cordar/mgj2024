@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b855dwrmwpnje"]
+
+[ext_resource type="Texture2D" uid="uid://b1oex6a4un0q7" path="res://assets/tilemap_terrain.png" id="1_6nh2r"]
+[ext_resource type="Script" path="res://scripts/key.gd" id="2_aron2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luk0g"]
+size = Vector2(42.5, 34.5)
+
+[node name="Key" type="Sprite2D"]
+texture = ExtResource("1_6nh2r")
+region_enabled = true
+region_rect = Rect2(199.935, 200.559, 46.8513, 46.8513)
+script = ExtResource("2_aron2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_luk0g")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
