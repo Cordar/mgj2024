@@ -11,6 +11,11 @@ var lastCheckpoint: Vector2;
 
 var deaths: int = 0;
 
+var musicProgress: int = 0;
+
+const level0Scene = preload("res://scenes/level_0.tscn")
+const level1Scene = preload("res://scenes/level_1.tscn")
+
 func _ready():
 	initVariables();
 	load_game();
